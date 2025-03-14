@@ -1,14 +1,17 @@
 package controladores;
 
 import javax.swing.JOptionPane;
+
 import modelos.Fallecido;
 import modelos.FallecidoDAO;
+import modelos.Informante;
 import vistas.VistaGeneraCertificado;
 
 public class ControladorCertificadoDefuncion {
 
     public static VistaGeneraCertificado vistaGeneraCertificado = new VistaGeneraCertificado();
     private static Fallecido fallecido;
+    private static Informante informante;
 
     public static void mostrar() {
         vistaGeneraCertificado.setVisible(true);
@@ -37,30 +40,40 @@ public class ControladorCertificadoDefuncion {
         } else {
             fallecido.setDesconocido(true);
         }
-
         try {
-            if (!vistaGeneraCertificado.getTxtDiaNacimiento().getText().equals("")) {
-                fallecido.setDiaNacimiento(Integer.parseInt(vistaGeneraCertificado.getTxtDiaNacimiento().getText().trim()));
+            String diaTexto = vistaGeneraCertificado.getTxtDiaNacimiento().getText().trim();
+            String mesTexto = vistaGeneraCertificado.getTxtMesNacimiento().getText().trim();
+            String anioTexto = vistaGeneraCertificado.getTxtAñoNacimiento().getText().trim();
+
+            if (!diaTexto.equals("") && !mesTexto.equals("") && !anioTexto.equals("")) {
+                String fechaCompleta = diaTexto + "/" + mesTexto + "/" + anioTexto;
+                if (fechaCompleta.matches("^([0-2][0-9]|3[0-1])/(0[1-9]|1[0-2])/\\d{4}$")) {
+                    int dia = Integer.parseInt(diaTexto);
+                    int mes = Integer.parseInt(mesTexto);
+                    int anio = Integer.parseInt(anioTexto);
+
+                    if (dia > 0 && dia <= 31 && mes > 0 && mes <= 12 && anio > 0) {
+                        fallecido.setDiaNacimiento(dia);
+                        fallecido.setMesNacimiento(mes);
+                        fallecido.setAnioNacimiento(anio);
+
+                        // Additional validation for a valid calendar date
+                        java.time.LocalDate.of(anio, mes, dia);
+                    } else {
+                        errores.append("La fecha ingresada es inválida. Verifica el día, mes y año.\n");
+                    }
+                } else {
+                    errores.append("La fecha debe estar en el formato dd/mm/yyyy.\n");
+                }
             } else {
-                errores.append("El campo Dia de Nacimiento no debe ser vacío\n");
+                if (diaTexto.equals("")) errores.append("El campo Día de Nacimiento no debe ser vacío\n");
+                if (mesTexto.equals("")) errores.append("El campo Mes de Nacimiento no debe ser vacío\n");
+                if (anioTexto.equals("")) errores.append("El campo Año de Nacimiento no debe ser vacío\n");
             }
-            if (!vistaGeneraCertificado.getTxtDiaNacimiento().getText().equals("")) {
-                fallecido.setMesNacimiento(Integer.parseInt(vistaGeneraCertificado.getTxtMesNacimiento().getText().trim()));
-            } else {
-                errores.append("El campo Mes de Nacimiento no debe ser vacío\n");
-            }
-            if (!vistaGeneraCertificado.getTxtDiaNacimiento().getText().equals("")) {
-                fallecido.setAnioNacimiento(Integer.parseInt(vistaGeneraCertificado.getTxtAñoNacimiento().getText().trim()));
-            } else {
-                errores.append("El campo Año de Nacimiento no debe ser vacío\n");
-            }
-        } catch (NumberFormatException e) {
-            JOptionPane.showMessageDialog(
-                    null,
-                    "Solo puedes ingresar números en el campo Fecha Nacimiento",
-                    "Errores de validación",
-                    JOptionPane.WARNING_MESSAGE);
+        } catch (NumberFormatException | java.time.DateTimeException e) {
+            errores.append("Solo puedes ingresar números válidos en los campos de Fecha de Nacimiento. Verifica que la fecha sea válida.\n");
         }
+
 
         if (vistaGeneraCertificado.getRdbtnHombre().isSelected()) {
             fallecido.setSexo("Hombre");
@@ -89,11 +102,6 @@ public class ControladorCertificadoDefuncion {
             fallecido.setEntidadNacimiento(vistaGeneraCertificado.getTxtEntidadNacimiento().getText().trim());
         } else {
             errores.append("El campo Entidad Nacimiento no debe ser vacío\n");
-        }
-        if (!vistaGeneraCertificado.getTxtCurp().getText().equals("")) {
-            fallecido.setCurp(vistaGeneraCertificado.getTxtCurp().getText().trim());
-        } else {
-            errores.append("El campo Curp no debe ser vacío\n");
         }
         if (!vistaGeneraCertificado.getTxtCurp().getText().equals("")) {
             fallecido.setCurp(vistaGeneraCertificado.getTxtCurp().getText().trim());
@@ -165,46 +173,55 @@ public class ControladorCertificadoDefuncion {
         var errores = new StringBuilder();
         if (!vistaGeneraCertificado.getRdbtnSeIgnoraEdad().isSelected()) {
             fallecido.setSeIgnoraEdad(false);
-            if (!vistaGeneraCertificado.getTxtEdadTiempo().getText().equals("")) {
-                if (vistaGeneraCertificado.getjComboBoxTiempo().getSelectedItem().equals("Minutos")) {
-                    fallecido.setEdadMinutos(Integer.parseInt(vistaGeneraCertificado.getTxtEdadTiempo().getText().trim()));
+            try {
+                if (!vistaGeneraCertificado.getTxtEdadTiempo().getText().equals("")) {
+                    if (vistaGeneraCertificado.getjComboBoxTiempo().getSelectedItem().equals("Minutos")) {
+                        fallecido.setEdadMinutos(Integer.parseInt(vistaGeneraCertificado.getTxtEdadTiempo().getText().trim()));
 
-                } else if (vistaGeneraCertificado.getjComboBoxTiempo().getSelectedItem().equals("Horas")) {
-                    fallecido.setEdadHoras(Integer.parseInt(vistaGeneraCertificado.getTxtEdadTiempo().getText().trim()));
+                    } else if (vistaGeneraCertificado.getjComboBoxTiempo().getSelectedItem().equals("Horas")) {
+                        fallecido.setEdadHoras(Integer.parseInt(vistaGeneraCertificado.getTxtEdadTiempo().getText().trim()));
 
-                } else if (vistaGeneraCertificado.getjComboBoxTiempo().getSelectedItem().equals("Días")) {
-                    fallecido.setEdadDias(Integer.parseInt(vistaGeneraCertificado.getTxtEdadTiempo().getText().trim()));
+                    } else if (vistaGeneraCertificado.getjComboBoxTiempo().getSelectedItem().equals("Días")) {
+                        fallecido.setEdadDias(Integer.parseInt(vistaGeneraCertificado.getTxtEdadTiempo().getText().trim()));
 
-                } else if (vistaGeneraCertificado.getjComboBoxTiempo().getSelectedItem().equals("Meses")) {
-                    fallecido.setEdadMeses(Integer.parseInt(vistaGeneraCertificado.getTxtEdadTiempo().getText().trim()));
+                    } else if (vistaGeneraCertificado.getjComboBoxTiempo().getSelectedItem().equals("Meses")) {
+                        fallecido.setEdadMeses(Integer.parseInt(vistaGeneraCertificado.getTxtEdadTiempo().getText().trim()));
 
-                } else if (vistaGeneraCertificado.getjComboBoxTiempo().getSelectedItem().equals("Años cumplidos")) {
-                    fallecido.setEdadAnios(Integer.parseInt(vistaGeneraCertificado.getTxtEdadTiempo().getText().trim()));
+                    } else if (vistaGeneraCertificado.getjComboBoxTiempo().getSelectedItem().equals("Años cumplidos")) {
+                        fallecido.setEdadAnios(Integer.parseInt(vistaGeneraCertificado.getTxtEdadTiempo().getText().trim()));
+                    }
+                } else {
+                    errores.append("El campo Edad Cumplida no debe ser vacío\n");
                 }
-            } else {
-                errores.append("El campo Edad Cumplida no debe ser vacío\n");
+            } catch (NumberFormatException e) {
+                errores.append("El campo Edad Cumplida debe ser un valor numérico\n");
             }
+
 
             if ((vistaGeneraCertificado.getjComboBoxTiempo().getSelectedItem().equals("Días")
                     && Integer.parseInt(vistaGeneraCertificado.getTxtEdadTiempo().getText()) < 28)
                     || vistaGeneraCertificado.getjComboBoxTiempo().getSelectedItem().equals("Minutos")
                     || vistaGeneraCertificado.getjComboBoxTiempo().getSelectedItem().equals("Horas")) {
+                try {
+                    if (!vistaGeneraCertificado.getTxtFolioCertificadoNacimiento().getText().equals("")) {
+                        fallecido.setFolioCertificadoNacimiento(vistaGeneraCertificado.getTxtFolioCertificadoNacimiento().getText().trim());
+                    } else {
+                        errores.append("El campo Folio Certificado de Nacimiento no debe ser vacío\n");
+                    }
+                    if (!vistaGeneraCertificado.getTxtSemanasGestacion().getText().equals("")) {
+                        fallecido.setSemanasGestacion(Integer.parseInt(vistaGeneraCertificado.getTxtSemanasGestacion().getText().trim()));
+                    } else {
+                        errores.append("El campo Semanas de Gestación no debe ser vacío\n");
+                    }
+                    if (!vistaGeneraCertificado.getTxtPesoAlNacer().getText().equals("")) {
+                        fallecido.setPesoNacimiento(Integer.parseInt(vistaGeneraCertificado.getTxtPesoAlNacer().getText().trim()));
+                    } else {
+                        errores.append("El campo Peso en Gramos no debe ser vacío\n");
+                    }
+                } catch (NumberFormatException e) {
+                    errores.append("Los valores en el campo Semanas Gestación y Peso al Nacer deben ser numéricos\n");
+                }
 
-                if (!vistaGeneraCertificado.getTxtFolioCertificadoNacimiento().getText().equals("")) {
-                    fallecido.setFolioCertificadoNacimiento(vistaGeneraCertificado.getTxtFolioCertificadoNacimiento().getText().trim());
-                } else {
-                    errores.append("El campo Folio Certificado de Nacimiento no debe ser vacío\n");
-                }
-                if (!vistaGeneraCertificado.getTxtSemanasGestacion().getText().equals("")) {
-                    fallecido.setSemanasGestacion(Integer.parseInt(vistaGeneraCertificado.getTxtSemanasGestacion().getText().trim()));
-                } else {
-                    errores.append("El campo Semanas de Gestación no debe ser vacío\n");
-                }
-                if (!vistaGeneraCertificado.getTxtPesoAlNacer().getText().equals("")) {
-                    fallecido.setPesoNacimiento(Integer.parseInt(vistaGeneraCertificado.getTxtPesoAlNacer().getText().trim()));
-                } else {
-                    errores.append("El campo Peso en Gramos no debe ser vacío\n");
-                }
             }
         } else {
             fallecido.setSeIgnoraEdad(true);
@@ -373,6 +390,7 @@ public class ControladorCertificadoDefuncion {
     }
 
     public static void recopilarInformacionVista6() {
+        informante = new Informante();
         var errores = new StringBuilder();
 
         if (!vistaGeneraCertificado.getRdbtnServiciosDeSaludNinguna().isSelected()
@@ -404,8 +422,24 @@ public class ControladorCertificadoDefuncion {
             if (!vistaGeneraCertificado.getTxtNumeroSeguridadSocial().getText().equals("")) {
                 fallecido.setNumeroSeguridadSocialAfiliacion(vistaGeneraCertificado.getTxtNumeroSeguridadSocial().getText().trim());
             } else {
-                errores.append("El campo Número de Seguridad Social no debe ser vacío");
+                errores.append("El campo Número de Seguridad Social no debe ser vacío\n");
             }
+        }
+
+        if (!vistaGeneraCertificado.getTxtNombreInf().getText().equals("")) {
+            informante.setNombre(vistaGeneraCertificado.getTxtNombreInf().getText().trim());
+        } else {
+            errores.append("El campo Nombre del Informante no debe ser vacío\n");
+        }
+        if (!vistaGeneraCertificado.getTxtApellidoPaternoInf().getText().equals("")) {
+            informante.setApellidoPaterno(vistaGeneraCertificado.getTxtApellidoPaternoInf().getText().trim());
+        } else {
+            errores.append("El campo Apellido Paterno del Informante no debe ser vacío\n");
+        }
+        if (!vistaGeneraCertificado.getTxtApellidoMaternoInf().getText().equals("")) {
+            informante.setApellidoMaterno(vistaGeneraCertificado.getTxtApellidoMaternoInf().getText().trim());
+        } else {
+            errores.append("El campo Apellido Materno del Informante no debe ser vacío");
         }
 
         if (errores.length() > 0) {
@@ -415,43 +449,48 @@ public class ControladorCertificadoDefuncion {
                     "Errores de validación",
                     JOptionPane.WARNING_MESSAGE);
         } else {
-            vistaGeneraCertificado.getTabbedPaneCertificadoDefuncion().setSelectedIndex(5);
+            vistaGeneraCertificado.getTabbedPaneCertificadoDefuncion().setSelectedIndex(6);
         }
     }
 
-    public static void registrarFallecido() {
-        switch (new FallecidoDAO().registrar(fallecido)) {
-            case 1 ->
-                JOptionPane.showMessageDialog(null,
-                        "LO LOGRASTE",
-                        "INFO",
-                        JOptionPane.INFORMATION_MESSAGE);
-                
-            case 0 -> JOptionPane.showMessageDialog(null,
-                        "MAMASTE",
-                        "INFO",
-                        JOptionPane.INFORMATION_MESSAGE);
+    public static void deshabilitarHabilitarCamposEdadCumplida() {
+        try {
+            if (vistaGeneraCertificado.getRdbtnSeIgnoraEdad().isSelected()) {
+                vistaGeneraCertificado.getTxtFolioCertificadoNacimiento().setEditable(false);
+                vistaGeneraCertificado.getTxtFolioCertificadoNacimiento().setEnabled(false);
+                vistaGeneraCertificado.getTxtSemanasGestacion().setEditable(false);
+                vistaGeneraCertificado.getTxtSemanasGestacion().setEnabled(false);
+                vistaGeneraCertificado.getTxtPesoAlNacer().setEditable(false);
+                vistaGeneraCertificado.getTxtPesoAlNacer().setEnabled(false);
+                vistaGeneraCertificado.getTxtEdadTiempo().setEditable(false);
+                vistaGeneraCertificado.getTxtEdadTiempo().setEnabled(false);
+                vistaGeneraCertificado.getjComboBoxTiempo().setEnabled(false);
+            } else if ((vistaGeneraCertificado.getjComboBoxTiempo().getSelectedItem().equals("Días")
+                    && Integer.parseInt(vistaGeneraCertificado.getTxtEdadTiempo().getText()) < 28)
+                    || vistaGeneraCertificado.getjComboBoxTiempo().getSelectedItem().equals("Minutos")
+                    || vistaGeneraCertificado.getjComboBoxTiempo().getSelectedItem().equals("Horas")) {
+
+                vistaGeneraCertificado.getTxtFolioCertificadoNacimiento().setEditable(true);
+                vistaGeneraCertificado.getTxtFolioCertificadoNacimiento().setEnabled(true);
+                vistaGeneraCertificado.getTxtSemanasGestacion().setEditable(true);
+                vistaGeneraCertificado.getTxtSemanasGestacion().setEnabled(true);
+                vistaGeneraCertificado.getTxtPesoAlNacer().setEditable(true);
+                vistaGeneraCertificado.getTxtPesoAlNacer().setEnabled(true);
+                vistaGeneraCertificado.getTxtEdadTiempo().setEditable(true);
+                vistaGeneraCertificado.getTxtEdadTiempo().setEnabled(true);
+                vistaGeneraCertificado.getjComboBoxTiempo().setEnabled(true);
+            } else {
+                vistaGeneraCertificado.getTxtFolioCertificadoNacimiento().setEditable(false);
+                vistaGeneraCertificado.getTxtFolioCertificadoNacimiento().setEnabled(false);
+                vistaGeneraCertificado.getTxtSemanasGestacion().setEditable(false);
+                vistaGeneraCertificado.getTxtSemanasGestacion().setEnabled(false);
+                vistaGeneraCertificado.getTxtPesoAlNacer().setEditable(false);
+                vistaGeneraCertificado.getTxtPesoAlNacer().setEnabled(false);
+            }
+        } catch (NumberFormatException e) {
+
         }
 
-    }
-
-    public static void deshabilitarHabilitarMenores28Dias() {
-        if (vistaGeneraCertificado.getRdbtnSeIgnoraEdad().isSelected()) {
-            vistaGeneraCertificado.getTxtFolioCertificadoNacimiento().setEnabled(false);
-            vistaGeneraCertificado.getTxtSemanasGestacion().setEnabled(false);
-            vistaGeneraCertificado.getTxtPesoAlNacer().setEnabled(false);
-        } else if ((vistaGeneraCertificado.getjComboBoxTiempo().getSelectedItem().equals("Días")
-                && Integer.parseInt(vistaGeneraCertificado.getTxtEdadTiempo().getText()) < 28)
-                || vistaGeneraCertificado.getjComboBoxTiempo().getSelectedItem().equals("Minutos")
-                || vistaGeneraCertificado.getjComboBoxTiempo().getSelectedItem().equals("Horas")) {
-            vistaGeneraCertificado.getTxtFolioCertificadoNacimiento().setEnabled(true);
-            vistaGeneraCertificado.getTxtSemanasGestacion().setEnabled(true);
-            vistaGeneraCertificado.getTxtPesoAlNacer().setEnabled(true);
-        } else {
-            vistaGeneraCertificado.getTxtFolioCertificadoNacimiento().setEnabled(false);
-            vistaGeneraCertificado.getTxtSemanasGestacion().setEnabled(false);
-            vistaGeneraCertificado.getTxtPesoAlNacer().setEnabled(false);
-        }
     }
 
     public static void deshabilitarHabilitarTextFieldNombre() {
@@ -469,9 +508,42 @@ public class ControladorCertificadoDefuncion {
     public static void deshabilitarHabilitarOcupacionDescripcion() {
         if (vistaGeneraCertificado.getRdbtnOcupacionHabitualSeIgnora().isSelected()) {
             vistaGeneraCertificado.getTxtOcupacionHabitual().setEnabled(false);
+            vistaGeneraCertificado.getTxtOcupacionHabitual().setEditable(false);
             vistaGeneraCertificado.getTxtOcupacionHabitual().setText("");
         } else if (!vistaGeneraCertificado.getRdbtnOcupacionHabitualSeIgnora().isSelected()) {
             vistaGeneraCertificado.getTxtOcupacionHabitual().setEnabled(true);
+            vistaGeneraCertificado.getTxtOcupacionHabitual().setEditable(true);
+        }
+    }
+
+    public static void deshabilitarHabilitarTipoEscolaridad() {
+        if (vistaGeneraCertificado.getRdbtnEscolaridadSeIgnora().isSelected()
+                || vistaGeneraCertificado.getRdbtnEscolaridadNinguna().isSelected()) {
+            vistaGeneraCertificado.getRdbtnEscolaridadCompleta().setEnabled(false);
+            vistaGeneraCertificado.getRdbtnEscolaridadIncompleta().setEnabled(false);
+        } else {
+            vistaGeneraCertificado.getRdbtnEscolaridadCompleta().setEnabled(true);
+            vistaGeneraCertificado.getRdbtnEscolaridadIncompleta().setEnabled(true);
+        }
+    }
+
+    public static void deshabilitarHabilitarCamposServicioSalud() {
+        if (vistaGeneraCertificado.getRdbtnServiciosDeSaludSeIgnora().isSelected()
+                || vistaGeneraCertificado.getRdbtnServiciosDeSaludNinguna().isSelected()) {
+            vistaGeneraCertificado.getTxtNumeroSeguridadSocial().setEditable(false);
+            vistaGeneraCertificado.getTxtNumeroSeguridadSocial().setEnabled(false);
+            vistaGeneraCertificado.getTxtServiciosDeSaludEspecifique().setEnabled(false);
+            vistaGeneraCertificado.getTxtServiciosDeSaludEspecifique().setEditable(false);
+        } else if (vistaGeneraCertificado.getRdbtnServiciosDeSaludOtra().isSelected()) {
+            vistaGeneraCertificado.getTxtServiciosDeSaludEspecifique().setEnabled(true);
+            vistaGeneraCertificado.getTxtServiciosDeSaludEspecifique().setEditable(true);
+            vistaGeneraCertificado.getTxtNumeroSeguridadSocial().setEditable(true);
+            vistaGeneraCertificado.getTxtNumeroSeguridadSocial().setEnabled(true);
+        } else {
+            vistaGeneraCertificado.getTxtServiciosDeSaludEspecifique().setEnabled(false);
+            vistaGeneraCertificado.getTxtServiciosDeSaludEspecifique().setEditable(false);
+            vistaGeneraCertificado.getTxtNumeroSeguridadSocial().setEditable(true);
+            vistaGeneraCertificado.getTxtNumeroSeguridadSocial().setEnabled(true);
         }
     }
 
