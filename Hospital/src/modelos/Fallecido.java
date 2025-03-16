@@ -16,13 +16,13 @@ public class Fallecido {
     private String nacionalidad;
     private String especifiqueNacionalidad;
 
-//    Atributos para identidad cultural
+    //    Atributos para identidad cultural
     private String afromexicano;
     private String indigena;
     private String hablaIndigena;
     private String especifiqueLenguaIndigena;
 
-//  Atributos para edad
+    //  Atributos para edad
     private boolean seIgnoraEdad;
     private int edadMinutos;
     private int edadHoras;
@@ -30,15 +30,15 @@ public class Fallecido {
     private int edadMeses;
     private int edadAnios;
 
-//  Attibutos para edad menor de 28 dias
+    //  Attibutos para edad menor de 28 dias
     private String folioCertificadoNacimiento;
     private int semanasGestacion;
     private int pesoNacimiento;
 
-//  Atributos para estado civil
+    //  Atributos para estado civil
     private String situacionConyugal;
 
-//Atributos para residencia habitual
+    //Atributos para residencia habitual
     private String tipoVialidad;
     private String nombreVialidad;
     private String numeroExterior;
@@ -49,20 +49,49 @@ public class Fallecido {
     private String localidad;
     private String municipioAlcaldia;
     private String entidadFederativaPais;
-    
-//Atributos para escolaridad
+
+    //Atributos para escolaridad
     private String escolaridad;
     private String tipoEscolaridad;
-    
-//Atributos para ocupacion
+
+    //Atributos para ocupacion
     private boolean ocupacionHabitual;
     private String descripcionOcupacion;
     private String trabajaba;
-    
-//Atributos para seguridad social
+
+    //Atributos para seguridad social
     private String afiliacionServicioSalud;
     private String especifiqueServicioSalud;
     private String numeroSeguridadSocialAfiliacion;
+
+    //Dato provisional
+    private int diaCertificacion;
+    private int mesCertificacion;
+    private int anioCertificacion;
+
+    public int getDiaCertificacion() {
+        return diaCertificacion;
+    }
+
+    public void setDiaCertificacion(int diaCertificacion) {
+        this.diaCertificacion = diaCertificacion;
+    }
+
+    public int getMesCertificacion() {
+        return mesCertificacion;
+    }
+
+    public void setMesCertificacion(int mesCertificacion) {
+        this.mesCertificacion = mesCertificacion;
+    }
+
+    public int getAnioCertificacion() {
+        return anioCertificacion;
+    }
+
+    public void setAnioCertificacion(int anioCertificacion) {
+        this.anioCertificacion = anioCertificacion;
+    }
 
     public String getAfiliacionServicioSalud() {
         return afiliacionServicioSalud;

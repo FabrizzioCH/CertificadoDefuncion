@@ -7,4 +7,7 @@ public class ControladorSistema {
         ControladorCertificadoDefuncion.mostrar();
     }
 
+    public static void iniciarLogin(){
+        ControladorLogin.mostrar();
+    }
 }

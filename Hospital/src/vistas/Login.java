@@ -4,6 +4,7 @@
  */
 package vistas;
 
+import controladores.ControladorLogin;
 import javax.swing.JPasswordField;
 import javax.swing.JTextField;
 
@@ -18,6 +19,7 @@ public class Login extends javax.swing.JFrame {
      */
     public Login() {
         initComponents();
+        this.setLocationRelativeTo(null);
     }
 
     /**
@@ -62,10 +64,20 @@ public class Login extends javax.swing.JFrame {
 
         btnLogin.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         btnLogin.setText("LOGIN");
+        btnLogin.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnLoginActionPerformed(evt);
+            }
+        });
 
         btnOlvidasteContraseña1.setBackground(new java.awt.Color(183, 225, 248));
         btnOlvidasteContraseña1.setFont(new java.awt.Font("Segoe UI Historic", 0, 12)); // NOI18N
         btnOlvidasteContraseña1.setText("¿Olvidaste tu contraseña?");
+        btnOlvidasteContraseña1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnOlvidasteContraseña1ActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
         jPanel3.setLayout(jPanel3Layout);
@@ -123,8 +135,6 @@ public class Login extends javax.swing.JFrame {
         btnOlvidasteContraseña.setFont(new java.awt.Font("Segoe UI Historic", 1, 12)); // NOI18N
         btnOlvidasteContraseña.setForeground(new java.awt.Color(255, 255, 255));
         btnOlvidasteContraseña.setText("¿No tienes una cuenta? Registrate");
-
-        jLabel2.setIcon(new javax.swing.ImageIcon("C:\\Users\\Keyla Flores\\Documents\\UAEM\\6to SEMESTRE\\JAVA II\\CertificadoDefuncion-main\\Hospital\\img\\IMG-hospital.jpg")); // NOI18N
 
         jLabel5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/logoHospital.jpg"))); // NOI18N
 
@@ -188,6 +198,14 @@ public class Login extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void btnLoginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLoginActionPerformed
+        ControladorLogin.login();
+    }//GEN-LAST:event_btnLoginActionPerformed
+
+    private void btnOlvidasteContraseña1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnOlvidasteContraseña1ActionPerformed
+        ControladorLogin.mostrarVistaOlvidoPassword();
+    }//GEN-LAST:event_btnOlvidasteContraseña1ActionPerformed
 
     /**
      * @param args the command line arguments

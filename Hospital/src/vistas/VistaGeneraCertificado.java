@@ -130,6 +130,14 @@ public class VistaGeneraCertificado extends javax.swing.JFrame {
         return rdbtnEscolaridadPreescolar;
     }
 
+    public JTextField getTxtDefuncionClaveUnicaEstablecimientos() {
+        return txtDefuncionClaveUnicaEstablecimientos;
+    }
+
+    public JTextField getTxtDefuncionNombreUnidadMedica() {
+        return txtDefuncionNombreUnidadMedica;
+    }
+
     public JRadioButton getRdbtnEscolaridadPrimaria() {
         return rdbtnEscolaridadPrimaria;
     }
@@ -373,7 +381,6 @@ public class VistaGeneraCertificado extends javax.swing.JFrame {
         txtNumeroSeguridadSocial = new javax.swing.JTextField();
         btnSiguienteVista6 = new javax.swing.JButton();
         jPanel14 = new javax.swing.JPanel();
-        jSeparator27 = new javax.swing.JSeparator();
         jLabel52 = new javax.swing.JLabel();
         jLabel53 = new javax.swing.JLabel();
         jLabel54 = new javax.swing.JLabel();
@@ -400,8 +407,8 @@ public class VistaGeneraCertificado extends javax.swing.JFrame {
         rdbtnDefuncionSemar = new javax.swing.JRadioButton();
         rdbtnDefuncionOtraUnidadMedica = new javax.swing.JRadioButton();
         rdbtnDefuncionUnidadMedicaPrivada = new javax.swing.JRadioButton();
-        rdbtnDefuncionNombreUnidadMedica = new javax.swing.JTextField();
-        rdbtnDefuncionClaveUnicaEstablecimientos = new javax.swing.JTextField();
+        txtDefuncionNombreUnidadMedica = new javax.swing.JTextField();
+        txtDefuncionClaveUnicaEstablecimientos = new javax.swing.JTextField();
         jLabel59 = new javax.swing.JLabel();
         jLabel60 = new javax.swing.JLabel();
         jSeparator33 = new javax.swing.JSeparator();
@@ -583,9 +590,9 @@ public class VistaGeneraCertificado extends javax.swing.JFrame {
         txtCodigoAdicional = new javax.swing.JTextField();
         jPanel45 = new javax.swing.JPanel();
         jLabel131 = new javax.swing.JLabel();
-        txtSiOcurrioDesempeñoTrabajo = new javax.swing.JRadioButton();
-        txtNoOcurrioDesempeñoTrabajo = new javax.swing.JRadioButton();
-        txtSeIgnoraOcurrioDesempeñoTrabajo = new javax.swing.JRadioButton();
+        rdbtnSiOcurrioDesempeñoTrabajo = new javax.swing.JRadioButton();
+        rdbtnNoOcurrioDesempeñoTrabajo = new javax.swing.JRadioButton();
+        rdbtnSeIgnoraOcurrioDesempeñoTrabajo = new javax.swing.JRadioButton();
         jLabel132 = new javax.swing.JLabel();
         jLabel136 = new javax.swing.JLabel();
         jPanel46 = new javax.swing.JPanel();
@@ -741,6 +748,7 @@ public class VistaGeneraCertificado extends javax.swing.JFrame {
         txtDiaRegistro = new javax.swing.JTextField();
         txtMesRegistro = new javax.swing.JTextField();
         txtAñoRegistro = new javax.swing.JTextField();
+        btnEnviarFormulario = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -1226,6 +1234,11 @@ public class VistaGeneraCertificado extends javax.swing.JFrame {
         buttonGroupHablabaLenguaIndigena.add(rdbtnSiLenguaIndigena);
         rdbtnSiLenguaIndigena.setFont(new java.awt.Font("Yu Gothic UI Light", 0, 18)); // NOI18N
         rdbtnSiLenguaIndigena.setText("Si");
+        rdbtnSiLenguaIndigena.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                rdbtnSiLenguaIndigenaActionPerformed(evt);
+            }
+        });
 
         buttonGroupHablabaLenguaIndigena.add(rdbtnNoLenguaIndigena);
         rdbtnNoLenguaIndigena.setFont(new java.awt.Font("Yu Gothic UI Light", 0, 18)); // NOI18N
@@ -1242,11 +1255,18 @@ public class VistaGeneraCertificado extends javax.swing.JFrame {
         buttonGroupHablabaLenguaIndigena.add(rdbtnSeIgnoraLenguaIndigena);
         rdbtnSeIgnoraLenguaIndigena.setFont(new java.awt.Font("Yu Gothic UI Light", 0, 18)); // NOI18N
         rdbtnSeIgnoraLenguaIndigena.setText("Se ignora");
+        rdbtnSeIgnoraLenguaIndigena.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                rdbtnSeIgnoraLenguaIndigenaActionPerformed(evt);
+            }
+        });
 
         jLabel18.setFont(new java.awt.Font("Yu Gothic UI Light", 0, 12)); // NOI18N
         jLabel18.setText("Especifique:");
 
+        txtEspecifiqueLenguaIndigena.setEditable(false);
         txtEspecifiqueLenguaIndigena.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        txtEspecifiqueLenguaIndigena.setEnabled(false);
 
         javax.swing.GroupLayout jPanel12Layout = new javax.swing.GroupLayout(jPanel12);
         jPanel12.setLayout(jPanel12Layout);
@@ -1315,11 +1335,18 @@ public class VistaGeneraCertificado extends javax.swing.JFrame {
         buttonGroupNacionalidad.add(rdbtnSeIgnoraNacionalidad);
         rdbtnSeIgnoraNacionalidad.setFont(new java.awt.Font("Yu Gothic UI Light", 0, 18)); // NOI18N
         rdbtnSeIgnoraNacionalidad.setText("Se ignora");
+        rdbtnSeIgnoraNacionalidad.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                rdbtnSeIgnoraNacionalidadActionPerformed(evt);
+            }
+        });
 
         jLabel20.setFont(new java.awt.Font("Yu Gothic UI Light", 0, 12)); // NOI18N
         jLabel20.setText("Especifique:");
 
+        txtEspecifiqueNacionalidad.setEditable(false);
         txtEspecifiqueNacionalidad.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        txtEspecifiqueNacionalidad.setEnabled(false);
         txtEspecifiqueNacionalidad.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtEspecifiqueNacionalidadActionPerformed(evt);
@@ -2524,14 +2551,10 @@ public class VistaGeneraCertificado extends javax.swing.JFrame {
                 .addGap(193, 193, 193)
                 .addComponent(jLabel54)
                 .addGap(128, 128, 128))
-            .addGroup(jPanel14Layout.createSequentialGroup()
-                .addGap(820, 820, 820)
-                .addComponent(jSeparator27, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(40, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel14Layout.createSequentialGroup()
                 .addGap(61, 61, 61)
                 .addComponent(txtNombreInf, javax.swing.GroupLayout.PREFERRED_SIZE, 218, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 77, Short.MAX_VALUE)
                 .addComponent(txtApellidoPaternoInf, javax.swing.GroupLayout.PREFERRED_SIZE, 218, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(51, 51, 51)
                 .addComponent(txtApellidoMaternoInf, javax.swing.GroupLayout.PREFERRED_SIZE, 218, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -2551,9 +2574,7 @@ public class VistaGeneraCertificado extends javax.swing.JFrame {
                     .addComponent(txtNombreInf, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(txtApellidoPaternoInf, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(txtApellidoMaternoInf, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jSeparator27, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 11, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 33, Short.MAX_VALUE)
                 .addGroup(jPanel14Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel52)
                     .addComponent(jLabel53)
@@ -2674,6 +2695,11 @@ public class VistaGeneraCertificado extends javax.swing.JFrame {
         buttonGroupSitioDefuncion.add(rdbtnDefuncionSecretariaSalud);
         rdbtnDefuncionSecretariaSalud.setFont(new java.awt.Font("Yu Gothic UI Light", 0, 14)); // NOI18N
         rdbtnDefuncionSecretariaSalud.setText("Secretaría de Salud");
+        rdbtnDefuncionSecretariaSalud.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                rdbtnDefuncionSecretariaSaludActionPerformed(evt);
+            }
+        });
 
         buttonGroupSitioDefuncion.add(rdbtnDefuncionImssBienestar);
         rdbtnDefuncionImssBienestar.setFont(new java.awt.Font("Yu Gothic UI Light", 0, 14)); // NOI18N
@@ -2687,37 +2713,76 @@ public class VistaGeneraCertificado extends javax.swing.JFrame {
         buttonGroupSitioDefuncion.add(rdbtnDefuncionImss);
         rdbtnDefuncionImss.setFont(new java.awt.Font("Yu Gothic UI Light", 0, 14)); // NOI18N
         rdbtnDefuncionImss.setText("IMSS");
+        rdbtnDefuncionImss.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                rdbtnDefuncionImssActionPerformed(evt);
+            }
+        });
 
         buttonGroupSitioDefuncion.add(rdbtnDefuncionIssste);
         rdbtnDefuncionIssste.setFont(new java.awt.Font("Yu Gothic UI Light", 0, 14)); // NOI18N
         rdbtnDefuncionIssste.setText("ISSSTE");
+        rdbtnDefuncionIssste.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                rdbtnDefuncionIsssteActionPerformed(evt);
+            }
+        });
 
         buttonGroupSitioDefuncion.add(rdbtnDefuncionPemex);
         rdbtnDefuncionPemex.setFont(new java.awt.Font("Yu Gothic UI Light", 0, 14)); // NOI18N
         rdbtnDefuncionPemex.setText("PEMEX");
+        rdbtnDefuncionPemex.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                rdbtnDefuncionPemexActionPerformed(evt);
+            }
+        });
 
         buttonGroupSitioDefuncion.add(rdbtnDefuncionSedena);
         rdbtnDefuncionSedena.setFont(new java.awt.Font("Yu Gothic UI Light", 0, 14)); // NOI18N
         rdbtnDefuncionSedena.setText("SEDENA");
+        rdbtnDefuncionSedena.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                rdbtnDefuncionSedenaActionPerformed(evt);
+            }
+        });
 
         buttonGroupSitioDefuncion.add(rdbtnDefuncionSemar);
         rdbtnDefuncionSemar.setFont(new java.awt.Font("Yu Gothic UI Light", 0, 14)); // NOI18N
         rdbtnDefuncionSemar.setText("SEMAR");
+        rdbtnDefuncionSemar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                rdbtnDefuncionSemarActionPerformed(evt);
+            }
+        });
 
         buttonGroupSitioDefuncion.add(rdbtnDefuncionOtraUnidadMedica);
         rdbtnDefuncionOtraUnidadMedica.setFont(new java.awt.Font("Yu Gothic UI Light", 0, 14)); // NOI18N
         rdbtnDefuncionOtraUnidadMedica.setText("Otra unidad médica pública");
+        rdbtnDefuncionOtraUnidadMedica.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                rdbtnDefuncionOtraUnidadMedicaActionPerformed(evt);
+            }
+        });
 
         buttonGroupSitioDefuncion.add(rdbtnDefuncionUnidadMedicaPrivada);
         rdbtnDefuncionUnidadMedicaPrivada.setFont(new java.awt.Font("Yu Gothic UI Light", 0, 14)); // NOI18N
         rdbtnDefuncionUnidadMedicaPrivada.setText("Unidad médica privada");
-
-        rdbtnDefuncionNombreUnidadMedica.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
-
-        rdbtnDefuncionClaveUnicaEstablecimientos.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
-        rdbtnDefuncionClaveUnicaEstablecimientos.addActionListener(new java.awt.event.ActionListener() {
+        rdbtnDefuncionUnidadMedicaPrivada.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                rdbtnDefuncionClaveUnicaEstablecimientosActionPerformed(evt);
+                rdbtnDefuncionUnidadMedicaPrivadaActionPerformed(evt);
+            }
+        });
+
+        txtDefuncionNombreUnidadMedica.setEditable(false);
+        txtDefuncionNombreUnidadMedica.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        txtDefuncionNombreUnidadMedica.setEnabled(false);
+
+        txtDefuncionClaveUnicaEstablecimientos.setEditable(false);
+        txtDefuncionClaveUnicaEstablecimientos.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        txtDefuncionClaveUnicaEstablecimientos.setEnabled(false);
+        txtDefuncionClaveUnicaEstablecimientos.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtDefuncionClaveUnicaEstablecimientosActionPerformed(evt);
             }
         });
 
@@ -2734,6 +2799,11 @@ public class VistaGeneraCertificado extends javax.swing.JFrame {
         buttonGroupSitioDefuncion.add(rdbtnDefuncionViaPublica);
         rdbtnDefuncionViaPublica.setFont(new java.awt.Font("Yu Gothic UI Light", 0, 14)); // NOI18N
         rdbtnDefuncionViaPublica.setText("Vía Pública");
+        rdbtnDefuncionViaPublica.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                rdbtnDefuncionViaPublicaActionPerformed(evt);
+            }
+        });
 
         buttonGroupSitioDefuncion.add(rdbtnDefuncionHogar);
         rdbtnDefuncionHogar.setFont(new java.awt.Font("Yu Gothic UI Light", 0, 14)); // NOI18N
@@ -2756,6 +2826,11 @@ public class VistaGeneraCertificado extends javax.swing.JFrame {
         buttonGroupSitioDefuncion.add(rdbtnDefuncionSeIgnora);
         rdbtnDefuncionSeIgnora.setFont(new java.awt.Font("Yu Gothic UI Light", 0, 14)); // NOI18N
         rdbtnDefuncionSeIgnora.setText("Se ignora");
+        rdbtnDefuncionSeIgnora.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                rdbtnDefuncionSeIgnoraActionPerformed(evt);
+            }
+        });
 
         jLabel62.setFont(new java.awt.Font("Yu Gothic UI Light", 0, 18)); // NOI18N
         jLabel62.setText("Sitio donde sucedió la defunción");
@@ -2788,10 +2863,10 @@ public class VistaGeneraCertificado extends javax.swing.JFrame {
                                     .addComponent(rdbtnDefuncionUnidadMedicaPrivada)))
                             .addGroup(jPanel26Layout.createSequentialGroup()
                                 .addGap(46, 46, 46)
-                                .addComponent(rdbtnDefuncionNombreUnidadMedica, javax.swing.GroupLayout.PREFERRED_SIZE, 264, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addComponent(txtDefuncionNombreUnidadMedica, javax.swing.GroupLayout.PREFERRED_SIZE, 264, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(jPanel26Layout.createSequentialGroup()
                                 .addGap(43, 43, 43)
-                                .addComponent(rdbtnDefuncionClaveUnicaEstablecimientos, javax.swing.GroupLayout.PREFERRED_SIZE, 265, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                                .addComponent(txtDefuncionClaveUnicaEstablecimientos, javax.swing.GroupLayout.PREFERRED_SIZE, 265, javax.swing.GroupLayout.PREFERRED_SIZE))))
                     .addGroup(jPanel26Layout.createSequentialGroup()
                         .addGap(31, 31, 31)
                         .addComponent(jLabel58)
@@ -2834,10 +2909,10 @@ public class VistaGeneraCertificado extends javax.swing.JFrame {
                         .addGap(18, 18, 18)
                         .addGroup(jPanel26Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel59)
-                            .addComponent(rdbtnDefuncionNombreUnidadMedica, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(txtDefuncionNombreUnidadMedica, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 58, Short.MAX_VALUE)
                         .addGroup(jPanel26Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(rdbtnDefuncionClaveUnicaEstablecimientos, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(txtDefuncionClaveUnicaEstablecimientos, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jLabel60))
                         .addGap(15, 15, 15))
                     .addGroup(jPanel26Layout.createSequentialGroup()
@@ -2859,6 +2934,11 @@ public class VistaGeneraCertificado extends javax.swing.JFrame {
         btnSiguienteVista7.setBackground(new java.awt.Color(183, 225, 248));
         btnSiguienteVista7.setFont(new java.awt.Font("Yu Gothic UI Light", 1, 12)); // NOI18N
         btnSiguienteVista7.setText("Siguiente");
+        btnSiguienteVista7.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnSiguienteVista7ActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanelVista7Layout = new javax.swing.GroupLayout(jPanelVista7);
         jPanelVista7.setLayout(jPanelVista7Layout);
@@ -3092,6 +3172,11 @@ public class VistaGeneraCertificado extends javax.swing.JFrame {
         btnSiguienteVista8.setBackground(new java.awt.Color(183, 225, 248));
         btnSiguienteVista8.setFont(new java.awt.Font("Yu Gothic UI Light", 1, 12)); // NOI18N
         btnSiguienteVista8.setText("Siguiente");
+        btnSiguienteVista8.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnSiguienteVista8ActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanelVista8Layout = new javax.swing.GroupLayout(jPanelVista8);
         jPanelVista8.setLayout(jPanelVista8Layout);
@@ -3326,6 +3411,11 @@ public class VistaGeneraCertificado extends javax.swing.JFrame {
         buttonGroupRealizoCirugia.add(rdbtnSiRealizoCirugia);
         rdbtnSiRealizoCirugia.setFont(new java.awt.Font("Yu Gothic UI Light", 0, 18)); // NOI18N
         rdbtnSiRealizoCirugia.setText("Si");
+        rdbtnSiRealizoCirugia.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                rdbtnSiRealizoCirugiaActionPerformed(evt);
+            }
+        });
 
         buttonGroupRealizoCirugia.add(rdbtnNoRealizoCirugia);
         rdbtnNoRealizoCirugia.setFont(new java.awt.Font("Yu Gothic UI Light", 0, 18)); // NOI18N
@@ -3339,6 +3429,11 @@ public class VistaGeneraCertificado extends javax.swing.JFrame {
         buttonGroupRealizoCirugia.add(rdbtnSeIgnoraRealizoCirugia);
         rdbtnSeIgnoraRealizoCirugia.setFont(new java.awt.Font("Yu Gothic UI Light", 0, 18)); // NOI18N
         rdbtnSeIgnoraRealizoCirugia.setText("Se ignora");
+        rdbtnSeIgnoraRealizoCirugia.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                rdbtnSeIgnoraRealizoCirugiaActionPerformed(evt);
+            }
+        });
 
         jLabel84.setFont(new java.awt.Font("Yu Gothic UI Light", 0, 12)); // NOI18N
         jLabel84.setText("Día");
@@ -3349,21 +3444,27 @@ public class VistaGeneraCertificado extends javax.swing.JFrame {
         jLabel86.setFont(new java.awt.Font("Yu Gothic UI Light", 0, 12)); // NOI18N
         jLabel86.setText("Año");
 
+        txtMesRealizoCirugia.setEditable(false);
         txtMesRealizoCirugia.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        txtMesRealizoCirugia.setEnabled(false);
         txtMesRealizoCirugia.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtMesRealizoCirugiaActionPerformed(evt);
             }
         });
 
+        txtAñoRealizoCirugia.setEditable(false);
         txtAñoRealizoCirugia.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        txtAñoRealizoCirugia.setEnabled(false);
         txtAñoRealizoCirugia.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtAñoRealizoCirugiaActionPerformed(evt);
             }
         });
 
+        txtDiaRealizoCirugia.setEditable(false);
         txtDiaRealizoCirugia.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        txtDiaRealizoCirugia.setEnabled(false);
         txtDiaRealizoCirugia.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtDiaRealizoCirugiaActionPerformed(evt);
@@ -3373,7 +3474,9 @@ public class VistaGeneraCertificado extends javax.swing.JFrame {
         jLabel87.setFont(new java.awt.Font("Yu Gothic UI Light", 0, 12)); // NOI18N
         jLabel87.setText("Motivo de la cirugía");
 
+        txtMotivoCirugia.setEditable(false);
         txtMotivoCirugia.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        txtMotivoCirugia.setEnabled(false);
         txtMotivoCirugia.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtMotivoCirugiaActionPerformed(evt);
@@ -3516,6 +3619,11 @@ public class VistaGeneraCertificado extends javax.swing.JFrame {
         btnSiguienteVista9.setBackground(new java.awt.Color(183, 225, 248));
         btnSiguienteVista9.setFont(new java.awt.Font("Yu Gothic UI Light", 1, 12)); // NOI18N
         btnSiguienteVista9.setText("Siguiente");
+        btnSiguienteVista9.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnSiguienteVista9ActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanelVista9Layout = new javax.swing.GroupLayout(jPanelVista9);
         jPanelVista9.setLayout(jPanelVista9Layout);
@@ -3855,6 +3963,11 @@ public class VistaGeneraCertificado extends javax.swing.JFrame {
         btnSiguienteVista10.setBackground(new java.awt.Color(183, 225, 248));
         btnSiguienteVista10.setFont(new java.awt.Font("Yu Gothic UI Light", 1, 12)); // NOI18N
         btnSiguienteVista10.setText("Siguiente");
+        btnSiguienteVista10.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnSiguienteVista10ActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanelVista10Layout = new javax.swing.GroupLayout(jPanelVista10);
         jPanelVista10.setLayout(jPanelVista10Layout);
@@ -4081,6 +4194,11 @@ public class VistaGeneraCertificado extends javax.swing.JFrame {
         btnSiguienteVista11.setBackground(new java.awt.Color(183, 225, 248));
         btnSiguienteVista11.setFont(new java.awt.Font("Yu Gothic UI Light", 1, 12)); // NOI18N
         btnSiguienteVista11.setText("Siguiente");
+        btnSiguienteVista11.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnSiguienteVista11ActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanelVista11Layout = new javax.swing.GroupLayout(jPanelVista11);
         jPanelVista11.setLayout(jPanelVista11Layout);
@@ -4147,10 +4265,16 @@ public class VistaGeneraCertificado extends javax.swing.JFrame {
         buttonGroupPracticoNecropsia.add(rdbtnSiPracticoNecropsia);
         rdbtnSiPracticoNecropsia.setFont(new java.awt.Font("Yu Gothic UI Light", 0, 12)); // NOI18N
         rdbtnSiPracticoNecropsia.setText("Si");
+        rdbtnSiPracticoNecropsia.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                rdbtnSiPracticoNecropsiaActionPerformed(evt);
+            }
+        });
 
         buttonGroupHallazgosEnCertificacion.add(rdbtnSiUtilizaronHallazgos);
         rdbtnSiUtilizaronHallazgos.setFont(new java.awt.Font("Yu Gothic UI Light", 0, 12)); // NOI18N
         rdbtnSiUtilizaronHallazgos.setText("Si");
+        rdbtnSiUtilizaronHallazgos.setEnabled(false);
         rdbtnSiUtilizaronHallazgos.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 rdbtnSiUtilizaronHallazgosActionPerformed(evt);
@@ -4160,6 +4284,7 @@ public class VistaGeneraCertificado extends javax.swing.JFrame {
         buttonGroupHallazgosEnCertificacion.add(rdbtnNoUtilizaronHallazgos);
         rdbtnNoUtilizaronHallazgos.setFont(new java.awt.Font("Yu Gothic UI Light", 0, 12)); // NOI18N
         rdbtnNoUtilizaronHallazgos.setText("No");
+        rdbtnNoUtilizaronHallazgos.setEnabled(false);
         rdbtnNoUtilizaronHallazgos.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 rdbtnNoUtilizaronHallazgosActionPerformed(evt);
@@ -4172,10 +4297,20 @@ public class VistaGeneraCertificado extends javax.swing.JFrame {
         buttonGroupPracticoNecropsia.add(rdbtnNoPracticoNecropsia);
         rdbtnNoPracticoNecropsia.setFont(new java.awt.Font("Yu Gothic UI Light", 0, 12)); // NOI18N
         rdbtnNoPracticoNecropsia.setText("No");
+        rdbtnNoPracticoNecropsia.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                rdbtnNoPracticoNecropsiaActionPerformed(evt);
+            }
+        });
 
         buttonGroupPracticoNecropsia.add(rdbtnSeIgnoraPracticoNecropsia);
         rdbtnSeIgnoraPracticoNecropsia.setFont(new java.awt.Font("Yu Gothic UI Light", 0, 12)); // NOI18N
         rdbtnSeIgnoraPracticoNecropsia.setText("Se ignora");
+        rdbtnSeIgnoraPracticoNecropsia.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                rdbtnSeIgnoraPracticoNecropsiaActionPerformed(evt);
+            }
+        });
 
         jLabel125.setFont(new java.awt.Font("Yu Gothic UI Light", 0, 18)); // NOI18N
         jLabel125.setText("¿Se practicó necropsia?");
@@ -4233,6 +4368,7 @@ public class VistaGeneraCertificado extends javax.swing.JFrame {
         );
 
         jPanel42.setBackground(new java.awt.Color(183, 225, 248));
+        jPanel42.setEnabled(false);
 
         jLabel120.setFont(new java.awt.Font("Yu Gothic UI Light", 0, 18)); // NOI18N
         jLabel120.setText("Si la defunción corresponde a una mujer de 10 a 54 años, ");
@@ -4243,18 +4379,22 @@ public class VistaGeneraCertificado extends javax.swing.JFrame {
         buttonGroupMuerteDurante.add(rdbtnMuerteDuranteEmbarazo);
         rdbtnMuerteDuranteEmbarazo.setFont(new java.awt.Font("Yu Gothic UI Light", 0, 12)); // NOI18N
         rdbtnMuerteDuranteEmbarazo.setText("El embarazo");
+        rdbtnMuerteDuranteEmbarazo.setEnabled(false);
 
         buttonGroupMuerteDurante.add(rdbtnMuerteDuranteParto);
         rdbtnMuerteDuranteParto.setFont(new java.awt.Font("Yu Gothic UI Light", 0, 12)); // NOI18N
         rdbtnMuerteDuranteParto.setText("El parto");
+        rdbtnMuerteDuranteParto.setEnabled(false);
 
         buttonGroupMuerteDurante.add(rdbtnMuerteDurantePuerperio);
         rdbtnMuerteDurantePuerperio.setFont(new java.awt.Font("Yu Gothic UI Light", 0, 12)); // NOI18N
         rdbtnMuerteDurantePuerperio.setText("El puerperio");
+        rdbtnMuerteDurantePuerperio.setEnabled(false);
 
         buttonGroupMuerteDurante.add(rdbtnMuerteDespuesPartoAborto);
         rdbtnMuerteDespuesPartoAborto.setFont(new java.awt.Font("Yu Gothic UI Light", 0, 12)); // NOI18N
         rdbtnMuerteDespuesPartoAborto.setText("43 días a 11 meses después del parto o aborto");
+        rdbtnMuerteDespuesPartoAborto.setEnabled(false);
         rdbtnMuerteDespuesPartoAborto.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 rdbtnMuerteDespuesPartoAbortoActionPerformed(evt);
@@ -4264,6 +4404,7 @@ public class VistaGeneraCertificado extends javax.swing.JFrame {
         buttonGroupMuerteDurante.add(rdbtnNoEstuvoEmbarazadaPreviamente);
         rdbtnNoEstuvoEmbarazadaPreviamente.setFont(new java.awt.Font("Yu Gothic UI Light", 0, 12)); // NOI18N
         rdbtnNoEstuvoEmbarazadaPreviamente.setText("No estuvo embarazada en los últimos 11 meses previos a la defunción");
+        rdbtnNoEstuvoEmbarazadaPreviamente.setEnabled(false);
 
         jSeparator64.setBackground(new java.awt.Color(0, 0, 0));
         jSeparator64.setForeground(new java.awt.Color(0, 0, 0));
@@ -4278,6 +4419,7 @@ public class VistaGeneraCertificado extends javax.swing.JFrame {
         buttonGroupCausasQueComplicacion.add(rdbtnSiComplicaciones);
         rdbtnSiComplicaciones.setFont(new java.awt.Font("Yu Gothic UI Light", 0, 12)); // NOI18N
         rdbtnSiComplicaciones.setText("Si");
+        rdbtnSiComplicaciones.setEnabled(false);
         rdbtnSiComplicaciones.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 rdbtnSiComplicacionesActionPerformed(evt);
@@ -4287,6 +4429,7 @@ public class VistaGeneraCertificado extends javax.swing.JFrame {
         buttonGroupCausasQueComplicacion.add(rdbtnNoComplicaciones);
         rdbtnNoComplicaciones.setFont(new java.awt.Font("Yu Gothic UI Light", 0, 12)); // NOI18N
         rdbtnNoComplicaciones.setText("No");
+        rdbtnNoComplicaciones.setEnabled(false);
 
         jSeparator65.setBackground(new java.awt.Color(0, 0, 0));
         jSeparator65.setForeground(new java.awt.Color(0, 0, 0));
@@ -4297,6 +4440,7 @@ public class VistaGeneraCertificado extends javax.swing.JFrame {
         buttonGroupComplicacionesPropias.add(rdbtnSiComplicacionesPropias);
         rdbtnSiComplicacionesPropias.setFont(new java.awt.Font("Yu Gothic UI Light", 0, 12)); // NOI18N
         rdbtnSiComplicacionesPropias.setText("Si");
+        rdbtnSiComplicacionesPropias.setEnabled(false);
         rdbtnSiComplicacionesPropias.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 rdbtnSiComplicacionesPropiasActionPerformed(evt);
@@ -4306,6 +4450,7 @@ public class VistaGeneraCertificado extends javax.swing.JFrame {
         buttonGroupComplicacionesPropias.add(rdbtnNoComplicacionesPropias);
         rdbtnNoComplicacionesPropias.setFont(new java.awt.Font("Yu Gothic UI Light", 0, 12)); // NOI18N
         rdbtnNoComplicacionesPropias.setText("No");
+        rdbtnNoComplicacionesPropias.setEnabled(false);
 
         javax.swing.GroupLayout jPanel42Layout = new javax.swing.GroupLayout(jPanel42);
         jPanel42.setLayout(jPanel42Layout);
@@ -4418,6 +4563,7 @@ public class VistaGeneraCertificado extends javax.swing.JFrame {
         buttonGroupDonadorOrganos.add(rdbtnNoDonadorOrganos);
         rdbtnNoDonadorOrganos.setFont(new java.awt.Font("Yu Gothic UI Light", 0, 12)); // NOI18N
         rdbtnNoDonadorOrganos.setText("No");
+        rdbtnNoDonadorOrganos.setEnabled(false);
         rdbtnNoDonadorOrganos.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 rdbtnNoDonadorOrganosActionPerformed(evt);
@@ -4430,6 +4576,7 @@ public class VistaGeneraCertificado extends javax.swing.JFrame {
         buttonGroupDonadorOrganos.add(rdbtnSiDonadorOrganos);
         rdbtnSiDonadorOrganos.setFont(new java.awt.Font("Yu Gothic UI Light", 0, 12)); // NOI18N
         rdbtnSiDonadorOrganos.setText("Si");
+        rdbtnSiDonadorOrganos.setEnabled(false);
         rdbtnSiDonadorOrganos.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 rdbtnSiDonadorOrganosActionPerformed(evt);
@@ -4450,7 +4597,7 @@ public class VistaGeneraCertificado extends javax.swing.JFrame {
         jPanel43Layout.setHorizontalGroup(
             jPanel43Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel43Layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap(73, Short.MAX_VALUE)
                 .addGroup(jPanel43Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel43Layout.createSequentialGroup()
                         .addComponent(jLabel126, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -4459,25 +4606,21 @@ public class VistaGeneraCertificado extends javax.swing.JFrame {
                         .addComponent(jLabel118, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(48, 48, 48))))
             .addGroup(jPanel43Layout.createSequentialGroup()
+                .addGap(89, 89, 89)
                 .addGroup(jPanel43Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel43Layout.createSequentialGroup()
-                        .addGap(39, 39, 39)
-                        .addComponent(rdbtnSiMuerteEncefalica))
-                    .addGroup(jPanel43Layout.createSequentialGroup()
-                        .addGap(89, 89, 89)
-                        .addGroup(jPanel43Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jPanel43Layout.createSequentialGroup()
-                                .addGap(6, 6, 6)
-                                .addComponent(rdbtnSiDonadorOrganos)
-                                .addGap(57, 57, 57)
-                                .addComponent(rdbtnNoDonadorOrganos))
-                            .addComponent(jLabel127, javax.swing.GroupLayout.PREFERRED_SIZE, 152, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                        .addGap(6, 6, 6)
+                        .addComponent(rdbtnSiDonadorOrganos)
+                        .addGap(57, 57, 57)
+                        .addComponent(rdbtnNoDonadorOrganos))
+                    .addComponent(jLabel127, javax.swing.GroupLayout.PREFERRED_SIZE, 152, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addGroup(jPanel43Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel43Layout.createSequentialGroup()
-                    .addContainerGap(224, Short.MAX_VALUE)
-                    .addComponent(rdbtnNoMuerteEncefalica)
-                    .addGap(82, 82, 82)))
+            .addGroup(jPanel43Layout.createSequentialGroup()
+                .addGap(39, 39, 39)
+                .addComponent(rdbtnSiMuerteEncefalica)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(rdbtnNoMuerteEncefalica)
+                .addGap(82, 82, 82))
         );
         jPanel43Layout.setVerticalGroup(
             jPanel43Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -4487,7 +4630,9 @@ public class VistaGeneraCertificado extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabel118)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(rdbtnSiMuerteEncefalica)
+                .addGroup(jPanel43Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(rdbtnSiMuerteEncefalica)
+                    .addComponent(rdbtnNoMuerteEncefalica))
                 .addGap(18, 18, 18)
                 .addComponent(jLabel127)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -4495,16 +4640,16 @@ public class VistaGeneraCertificado extends javax.swing.JFrame {
                     .addComponent(rdbtnSiDonadorOrganos)
                     .addComponent(rdbtnNoDonadorOrganos))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addGroup(jPanel43Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel43Layout.createSequentialGroup()
-                    .addContainerGap(90, Short.MAX_VALUE)
-                    .addComponent(rdbtnNoMuerteEncefalica)
-                    .addGap(69, 69, 69)))
         );
 
         btnSiguienteVista12.setBackground(new java.awt.Color(183, 225, 248));
         btnSiguienteVista12.setFont(new java.awt.Font("Yu Gothic UI Light", 1, 12)); // NOI18N
         btnSiguienteVista12.setText("Siguiente");
+        btnSiguienteVista12.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnSiguienteVista12ActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanelVista12Layout = new javax.swing.GroupLayout(jPanelVista12);
         jPanelVista12.setLayout(jPanelVista12Layout);
@@ -4632,22 +4777,22 @@ public class VistaGeneraCertificado extends javax.swing.JFrame {
         jLabel131.setFont(new java.awt.Font("Yu Gothic UI Light", 0, 18)); // NOI18N
         jLabel131.setText("¿Ocurrió en el desempeño");
 
-        buttonGroupAccidentalViolenta.add(txtSiOcurrioDesempeñoTrabajo);
-        txtSiOcurrioDesempeñoTrabajo.setFont(new java.awt.Font("Yu Gothic UI Light", 0, 18)); // NOI18N
-        txtSiOcurrioDesempeñoTrabajo.setText("Si");
+        buttonGroupAccidentalViolenta.add(rdbtnSiOcurrioDesempeñoTrabajo);
+        rdbtnSiOcurrioDesempeñoTrabajo.setFont(new java.awt.Font("Yu Gothic UI Light", 0, 18)); // NOI18N
+        rdbtnSiOcurrioDesempeñoTrabajo.setText("Si");
 
-        buttonGroupAccidentalViolenta.add(txtNoOcurrioDesempeñoTrabajo);
-        txtNoOcurrioDesempeñoTrabajo.setFont(new java.awt.Font("Yu Gothic UI Light", 0, 18)); // NOI18N
-        txtNoOcurrioDesempeñoTrabajo.setText("No");
-        txtNoOcurrioDesempeñoTrabajo.addActionListener(new java.awt.event.ActionListener() {
+        buttonGroupAccidentalViolenta.add(rdbtnNoOcurrioDesempeñoTrabajo);
+        rdbtnNoOcurrioDesempeñoTrabajo.setFont(new java.awt.Font("Yu Gothic UI Light", 0, 18)); // NOI18N
+        rdbtnNoOcurrioDesempeñoTrabajo.setText("No");
+        rdbtnNoOcurrioDesempeñoTrabajo.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtNoOcurrioDesempeñoTrabajoActionPerformed(evt);
+                rdbtnNoOcurrioDesempeñoTrabajoActionPerformed(evt);
             }
         });
 
-        buttonGroupAccidentalViolenta.add(txtSeIgnoraOcurrioDesempeñoTrabajo);
-        txtSeIgnoraOcurrioDesempeñoTrabajo.setFont(new java.awt.Font("Yu Gothic UI Light", 0, 18)); // NOI18N
-        txtSeIgnoraOcurrioDesempeñoTrabajo.setText("Se ignora");
+        buttonGroupAccidentalViolenta.add(rdbtnSeIgnoraOcurrioDesempeñoTrabajo);
+        rdbtnSeIgnoraOcurrioDesempeñoTrabajo.setFont(new java.awt.Font("Yu Gothic UI Light", 0, 18)); // NOI18N
+        rdbtnSeIgnoraOcurrioDesempeñoTrabajo.setText("Se ignora");
 
         jLabel132.setFont(new java.awt.Font("Yu Gothic UI Light", 0, 18)); // NOI18N
         jLabel132.setText("de su trabajo?");
@@ -4663,14 +4808,14 @@ public class VistaGeneraCertificado extends javax.swing.JFrame {
                 .addContainerGap()
                 .addGroup(jPanel45Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(jPanel45Layout.createSequentialGroup()
-                        .addComponent(txtSiOcurrioDesempeñoTrabajo)
+                        .addComponent(rdbtnSiOcurrioDesempeñoTrabajo)
                         .addGap(16, 16, 16)
                         .addGroup(jPanel45Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(txtSeIgnoraOcurrioDesempeñoTrabajo)
+                            .addComponent(rdbtnSeIgnoraOcurrioDesempeñoTrabajo)
                             .addGroup(jPanel45Layout.createSequentialGroup()
                                 .addComponent(jLabel132)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(txtNoOcurrioDesempeñoTrabajo))))
+                                .addComponent(rdbtnNoOcurrioDesempeñoTrabajo))))
                     .addGroup(jPanel45Layout.createSequentialGroup()
                         .addGap(0, 0, Short.MAX_VALUE)
                         .addComponent(jLabel131, javax.swing.GroupLayout.PREFERRED_SIZE, 204, javax.swing.GroupLayout.PREFERRED_SIZE)))
@@ -4691,14 +4836,14 @@ public class VistaGeneraCertificado extends javax.swing.JFrame {
                     .addGroup(jPanel45Layout.createSequentialGroup()
                         .addGap(28, 28, 28)
                         .addGroup(jPanel45Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(txtSiOcurrioDesempeñoTrabajo)
-                            .addComponent(txtNoOcurrioDesempeñoTrabajo))
+                            .addComponent(rdbtnSiOcurrioDesempeñoTrabajo)
+                            .addComponent(rdbtnNoOcurrioDesempeñoTrabajo))
                         .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                     .addGroup(jPanel45Layout.createSequentialGroup()
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jLabel132)
                         .addGap(33, 33, 33)
-                        .addComponent(txtSeIgnoraOcurrioDesempeñoTrabajo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(rdbtnSeIgnoraOcurrioDesempeñoTrabajo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addGap(15, 15, 15))))
         );
 
@@ -4853,6 +4998,11 @@ public class VistaGeneraCertificado extends javax.swing.JFrame {
         btnSiguienteVista13.setBackground(new java.awt.Color(183, 225, 248));
         btnSiguienteVista13.setFont(new java.awt.Font("Yu Gothic UI Light", 1, 12)); // NOI18N
         btnSiguienteVista13.setText("Siguiente");
+        btnSiguienteVista13.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnSiguienteVista13ActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanelVista13Layout = new javax.swing.GroupLayout(jPanelVista13);
         jPanelVista13.setLayout(jPanelVista13Layout);
@@ -5015,6 +5165,11 @@ public class VistaGeneraCertificado extends javax.swing.JFrame {
         btnSiguienteVista14.setBackground(new java.awt.Color(183, 225, 248));
         btnSiguienteVista14.setFont(new java.awt.Font("Yu Gothic UI Light", 1, 12)); // NOI18N
         btnSiguienteVista14.setText("Siguiente");
+        btnSiguienteVista14.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnSiguienteVista14ActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanelVista14Layout = new javax.swing.GroupLayout(jPanelVista14);
         jPanelVista14.setLayout(jPanelVista14Layout);
@@ -5264,6 +5419,11 @@ public class VistaGeneraCertificado extends javax.swing.JFrame {
         btnSiguienteVista15.setBackground(new java.awt.Color(183, 225, 248));
         btnSiguienteVista15.setFont(new java.awt.Font("Yu Gothic UI Light", 1, 12)); // NOI18N
         btnSiguienteVista15.setText("Siguiente");
+        btnSiguienteVista15.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnSiguienteVista15ActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanelVista15Layout = new javax.swing.GroupLayout(jPanelVista15);
         jPanelVista15.setLayout(jPanelVista15Layout);
@@ -5326,18 +5486,38 @@ public class VistaGeneraCertificado extends javax.swing.JFrame {
         buttonGroupDelCertificante.add(rdbtnMedicoTratante);
         rdbtnMedicoTratante.setFont(new java.awt.Font("Yu Gothic UI Light", 0, 12)); // NOI18N
         rdbtnMedicoTratante.setText("Médica/o tratante");
+        rdbtnMedicoTratante.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                rdbtnMedicoTratanteActionPerformed(evt);
+            }
+        });
 
         buttonGroupDelCertificante.add(rdbtnMedicoLegista);
         rdbtnMedicoLegista.setFont(new java.awt.Font("Yu Gothic UI Light", 0, 12)); // NOI18N
         rdbtnMedicoLegista.setText("Médica/o legista");
+        rdbtnMedicoLegista.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                rdbtnMedicoLegistaActionPerformed(evt);
+            }
+        });
 
         buttonGroupDelCertificante.add(rdbtnOtroMedico);
         rdbtnOtroMedico.setFont(new java.awt.Font("Yu Gothic UI Light", 0, 12)); // NOI18N
         rdbtnOtroMedico.setText("Otro médico");
+        rdbtnOtroMedico.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                rdbtnOtroMedicoActionPerformed(evt);
+            }
+        });
 
         buttonGroupDelCertificante.add(rdbtnPersonaAutorizada);
         rdbtnPersonaAutorizada.setFont(new java.awt.Font("Yu Gothic UI Light", 0, 12)); // NOI18N
         rdbtnPersonaAutorizada.setText("Persona autorizada por la Secretaría de Salud");
+        rdbtnPersonaAutorizada.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                rdbtnPersonaAutorizadaActionPerformed(evt);
+            }
+        });
 
         buttonGroupDelCertificante.add(rdbtnAutoridadCivil);
         rdbtnAutoridadCivil.setFont(new java.awt.Font("Yu Gothic UI Light", 0, 12)); // NOI18N
@@ -5368,7 +5548,9 @@ public class VistaGeneraCertificado extends javax.swing.JFrame {
         jLabel161.setFont(new java.awt.Font("Yu Gothic UI Light", 0, 18)); // NOI18N
         jLabel161.setText("Certificada por ");
 
+        txtEspecifiqueOtraAutoridad1.setEditable(false);
         txtEspecifiqueOtraAutoridad1.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        txtEspecifiqueOtraAutoridad1.setEnabled(false);
 
         jLabel179.setFont(new java.awt.Font("Yu Gothic UI Light", 1, 14)); // NOI18N
         jLabel179.setText("DE LA/DEL CERTIFICANTE");
@@ -5530,7 +5712,9 @@ public class VistaGeneraCertificado extends javax.swing.JFrame {
 
         txtFirmaCertificante.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
 
+        txtNumCedProfesional.setEditable(false);
         txtNumCedProfesional.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        txtNumCedProfesional.setEnabled(false);
 
         javax.swing.GroupLayout jPanel61Layout = new javax.swing.GroupLayout(jPanel61);
         jPanel61.setLayout(jPanel61Layout);
@@ -5577,6 +5761,11 @@ public class VistaGeneraCertificado extends javax.swing.JFrame {
         btnSiguienteVista16.setBackground(new java.awt.Color(183, 225, 248));
         btnSiguienteVista16.setFont(new java.awt.Font("Yu Gothic UI Light", 1, 12)); // NOI18N
         btnSiguienteVista16.setText("Siguiente");
+        btnSiguienteVista16.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnSiguienteVista16ActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanelVista16Layout = new javax.swing.GroupLayout(jPanelVista16);
         jPanelVista16.setLayout(jPanelVista16Layout);
@@ -5832,6 +6021,11 @@ public class VistaGeneraCertificado extends javax.swing.JFrame {
         btnSiguienteVista17.setBackground(new java.awt.Color(183, 225, 248));
         btnSiguienteVista17.setFont(new java.awt.Font("Yu Gothic UI Light", 1, 12)); // NOI18N
         btnSiguienteVista17.setText("Siguiente");
+        btnSiguienteVista17.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnSiguienteVista17ActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanelVista17Layout = new javax.swing.GroupLayout(jPanelVista17);
         jPanelVista17.setLayout(jPanelVista17Layout);
@@ -6218,14 +6412,17 @@ public class VistaGeneraCertificado extends javax.swing.JFrame {
                 .addContainerGap())
         );
 
+        btnEnviarFormulario.setText("Enviar");
+        btnEnviarFormulario.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnEnviarFormularioActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanelVista18Layout = new javax.swing.GroupLayout(jPanelVista18);
         jPanelVista18.setLayout(jPanelVista18Layout);
         jPanelVista18Layout.setHorizontalGroup(
             jPanelVista18Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanelVista18Layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jPanel64, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(236, 236, 236))
             .addGroup(jPanelVista18Layout.createSequentialGroup()
                 .addGap(22, 22, 22)
                 .addGroup(jPanelVista18Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
@@ -6239,6 +6436,15 @@ public class VistaGeneraCertificado extends javax.swing.JFrame {
                         .addGap(33, 33, 33)
                         .addComponent(jPanel68, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(65, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanelVista18Layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGroup(jPanelVista18Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanelVista18Layout.createSequentialGroup()
+                        .addComponent(jPanel64, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(236, 236, 236))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanelVista18Layout.createSequentialGroup()
+                        .addComponent(btnEnviarFormulario)
+                        .addGap(248, 248, 248))))
         );
         jPanelVista18Layout.setVerticalGroup(
             jPanelVista18Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -6259,7 +6465,9 @@ public class VistaGeneraCertificado extends javax.swing.JFrame {
                     .addGroup(jPanelVista18Layout.createSequentialGroup()
                         .addGap(59, 59, 59)
                         .addComponent(jPanel68, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(btnEnviarFormulario)
+                        .addGap(22, 22, 22))))
         );
 
         tabbedPaneCertificadoDefuncion.addTab("tab18", jPanelVista18);
@@ -6295,15 +6503,15 @@ public class VistaGeneraCertificado extends javax.swing.JFrame {
     }//GEN-LAST:event_rdbtnNoIndigenaActionPerformed
 
     private void rdbtnNoLenguaIndigenaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rdbtnNoLenguaIndigenaActionPerformed
-        // TODO add your handling code here:
+        ControladorCertificadoDefuncion.deshabilitarHabilitarEspecifiqueLenguaIndigena();
     }//GEN-LAST:event_rdbtnNoLenguaIndigenaActionPerformed
 
     private void rdbtnNacionalidadMexActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rdbtnNacionalidadMexActionPerformed
-        // TODO add your handling code here:
+        ControladorCertificadoDefuncion.deshabilitarHabilitarEspecifiqueNacionalidad();
     }//GEN-LAST:event_rdbtnNacionalidadMexActionPerformed
 
     private void rdbtnOtraNacionalidadActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rdbtnOtraNacionalidadActionPerformed
-        // TODO add your handling code here:
+        ControladorCertificadoDefuncion.deshabilitarHabilitarEspecifiqueNacionalidad();
     }//GEN-LAST:event_rdbtnOtraNacionalidadActionPerformed
 
     private void txtEspecifiqueNacionalidadActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtEspecifiqueNacionalidadActionPerformed
@@ -6350,20 +6558,20 @@ public class VistaGeneraCertificado extends javax.swing.JFrame {
         ControladorCertificadoDefuncion.deshabilitarHabilitarCamposServicioSalud();
     }//GEN-LAST:event_rdbtnServiciosDeSaludIMSSBIENESTARActionPerformed
 
-    private void rdbtnDefuncionClaveUnicaEstablecimientosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rdbtnDefuncionClaveUnicaEstablecimientosActionPerformed
+    private void txtDefuncionClaveUnicaEstablecimientosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtDefuncionClaveUnicaEstablecimientosActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_rdbtnDefuncionClaveUnicaEstablecimientosActionPerformed
+    }//GEN-LAST:event_txtDefuncionClaveUnicaEstablecimientosActionPerformed
 
     private void rdbtnDefuncionImssBienestarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rdbtnDefuncionImssBienestarActionPerformed
-        // TODO add your handling code here:
+        ControladorCertificadoDefuncion.deshabilitarHabilitarCamposSitioDefuncion();
     }//GEN-LAST:event_rdbtnDefuncionImssBienestarActionPerformed
 
     private void rdbtnDefuncionHogarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rdbtnDefuncionHogarActionPerformed
-        // TODO add your handling code here:
+        ControladorCertificadoDefuncion.deshabilitarHabilitarCamposSitioDefuncion();
     }//GEN-LAST:event_rdbtnDefuncionHogarActionPerformed
 
     private void rdbtnDefuncionOtroLugarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rdbtnDefuncionOtroLugarActionPerformed
-        // TODO add your handling code here:
+        ControladorCertificadoDefuncion.deshabilitarHabilitarCamposSitioDefuncion();
     }//GEN-LAST:event_rdbtnDefuncionOtroLugarActionPerformed
 
     private void txtNombreActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtNombreActionPerformed
@@ -6427,7 +6635,7 @@ public class VistaGeneraCertificado extends javax.swing.JFrame {
     }//GEN-LAST:event_rdbtnNoAtencionMedicaActionPerformed
 
     private void rdbtnNoRealizoCirugiaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rdbtnNoRealizoCirugiaActionPerformed
-        // TODO add your handling code here:
+        ControladorCertificadoDefuncion.deshabilitarHabilitarCamposCirugia();
     }//GEN-LAST:event_rdbtnNoRealizoCirugiaActionPerformed
 
     private void txtMesRealizoCirugiaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtMesRealizoCirugiaActionPerformed
@@ -6491,7 +6699,7 @@ public class VistaGeneraCertificado extends javax.swing.JFrame {
     }//GEN-LAST:event_rdbtnSiComplicacionesPropiasActionPerformed
 
     private void rdbtnSiMuerteEncefalicaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rdbtnSiMuerteEncefalicaActionPerformed
-        // TODO add your handling code here:
+        ControladorCertificadoDefuncion.deshabilitarHabilitarCamposEncefalica();
     }//GEN-LAST:event_rdbtnSiMuerteEncefalicaActionPerformed
 
     private void rdbtnNoDonadorOrganosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rdbtnNoDonadorOrganosActionPerformed
@@ -6503,23 +6711,25 @@ public class VistaGeneraCertificado extends javax.swing.JFrame {
     }//GEN-LAST:event_rdbtnSiDonadorOrganosActionPerformed
 
     private void rdbtnNoMuerteEncefalicaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rdbtnNoMuerteEncefalicaActionPerformed
-        // TODO add your handling code here:
+        ControladorCertificadoDefuncion.deshabilitarHabilitarCamposEncefalica();
     }//GEN-LAST:event_rdbtnNoMuerteEncefalicaActionPerformed
 
-    private void txtNoOcurrioDesempeñoTrabajoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtNoOcurrioDesempeñoTrabajoActionPerformed
+    private void rdbtnNoOcurrioDesempeñoTrabajoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rdbtnNoOcurrioDesempeñoTrabajoActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_txtNoOcurrioDesempeñoTrabajoActionPerformed
+    }//GEN-LAST:event_rdbtnNoOcurrioDesempeñoTrabajoActionPerformed
 
     private void rdbtnAreaDeportivaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rdbtnAreaDeportivaActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_rdbtnAreaDeportivaActionPerformed
 
     private void rdbtnAutoridadCivilActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rdbtnAutoridadCivilActionPerformed
-        // TODO add your handling code here:
+        ControladorCertificadoDefuncion.deshabilitarHabilitarCedulaMedico();
+        ControladorCertificadoDefuncion.deshabilitarHabilitarEspecifiqueCertificante();
     }//GEN-LAST:event_rdbtnAutoridadCivilActionPerformed
 
     private void rdbtnOtroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rdbtnOtroActionPerformed
-        // TODO add your handling code here:
+        ControladorCertificadoDefuncion.deshabilitarHabilitarCedulaMedico();
+        ControladorCertificadoDefuncion.deshabilitarHabilitarEspecifiqueCertificante();
     }//GEN-LAST:event_rdbtnOtroActionPerformed
 
     private void jLabel160ComponentHidden(java.awt.event.ComponentEvent evt) {//GEN-FIRST:event_jLabel160ComponentHidden
@@ -6633,6 +6843,158 @@ public class VistaGeneraCertificado extends javax.swing.JFrame {
     private void rdbtnServiciosDeSaludOtraActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rdbtnServiciosDeSaludOtraActionPerformed
         ControladorCertificadoDefuncion.deshabilitarHabilitarCamposServicioSalud();
     }//GEN-LAST:event_rdbtnServiciosDeSaludOtraActionPerformed
+
+    private void rdbtnSiLenguaIndigenaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rdbtnSiLenguaIndigenaActionPerformed
+        ControladorCertificadoDefuncion.deshabilitarHabilitarEspecifiqueLenguaIndigena();
+    }//GEN-LAST:event_rdbtnSiLenguaIndigenaActionPerformed
+
+    private void rdbtnSeIgnoraLenguaIndigenaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rdbtnSeIgnoraLenguaIndigenaActionPerformed
+        ControladorCertificadoDefuncion.deshabilitarHabilitarEspecifiqueLenguaIndigena();
+    }//GEN-LAST:event_rdbtnSeIgnoraLenguaIndigenaActionPerformed
+
+    private void rdbtnSeIgnoraNacionalidadActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rdbtnSeIgnoraNacionalidadActionPerformed
+        ControladorCertificadoDefuncion.deshabilitarHabilitarEspecifiqueNacionalidad();
+    }//GEN-LAST:event_rdbtnSeIgnoraNacionalidadActionPerformed
+
+    private void rdbtnDefuncionSecretariaSaludActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rdbtnDefuncionSecretariaSaludActionPerformed
+        ControladorCertificadoDefuncion.deshabilitarHabilitarCamposSitioDefuncion();
+    }//GEN-LAST:event_rdbtnDefuncionSecretariaSaludActionPerformed
+
+    private void rdbtnDefuncionIsssteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rdbtnDefuncionIsssteActionPerformed
+        ControladorCertificadoDefuncion.deshabilitarHabilitarCamposSitioDefuncion();
+    }//GEN-LAST:event_rdbtnDefuncionIsssteActionPerformed
+
+    private void rdbtnDefuncionSemarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rdbtnDefuncionSemarActionPerformed
+        ControladorCertificadoDefuncion.deshabilitarHabilitarCamposSitioDefuncion();
+    }//GEN-LAST:event_rdbtnDefuncionSemarActionPerformed
+
+    private void rdbtnDefuncionPemexActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rdbtnDefuncionPemexActionPerformed
+        ControladorCertificadoDefuncion.deshabilitarHabilitarCamposSitioDefuncion();
+    }//GEN-LAST:event_rdbtnDefuncionPemexActionPerformed
+
+    private void rdbtnDefuncionOtraUnidadMedicaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rdbtnDefuncionOtraUnidadMedicaActionPerformed
+        ControladorCertificadoDefuncion.deshabilitarHabilitarCamposSitioDefuncion();
+    }//GEN-LAST:event_rdbtnDefuncionOtraUnidadMedicaActionPerformed
+
+    private void rdbtnDefuncionImssActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rdbtnDefuncionImssActionPerformed
+        ControladorCertificadoDefuncion.deshabilitarHabilitarCamposSitioDefuncion();
+    }//GEN-LAST:event_rdbtnDefuncionImssActionPerformed
+
+    private void rdbtnDefuncionSedenaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rdbtnDefuncionSedenaActionPerformed
+        ControladorCertificadoDefuncion.deshabilitarHabilitarCamposSitioDefuncion();
+    }//GEN-LAST:event_rdbtnDefuncionSedenaActionPerformed
+
+    private void rdbtnDefuncionUnidadMedicaPrivadaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rdbtnDefuncionUnidadMedicaPrivadaActionPerformed
+        ControladorCertificadoDefuncion.deshabilitarHabilitarCamposSitioDefuncion();
+    }//GEN-LAST:event_rdbtnDefuncionUnidadMedicaPrivadaActionPerformed
+
+    private void rdbtnDefuncionViaPublicaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rdbtnDefuncionViaPublicaActionPerformed
+        ControladorCertificadoDefuncion.deshabilitarHabilitarCamposSitioDefuncion();
+    }//GEN-LAST:event_rdbtnDefuncionViaPublicaActionPerformed
+
+    private void rdbtnDefuncionSeIgnoraActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rdbtnDefuncionSeIgnoraActionPerformed
+        ControladorCertificadoDefuncion.deshabilitarHabilitarCamposSitioDefuncion();
+    }//GEN-LAST:event_rdbtnDefuncionSeIgnoraActionPerformed
+
+    private void btnSiguienteVista7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSiguienteVista7ActionPerformed
+        ControladorCertificadoDefuncion.recopilarInformacionVista7();
+    }//GEN-LAST:event_btnSiguienteVista7ActionPerformed
+
+    private void btnSiguienteVista8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSiguienteVista8ActionPerformed
+        ControladorCertificadoDefuncion.recopilarInformacionVista8();
+    }//GEN-LAST:event_btnSiguienteVista8ActionPerformed
+
+    private void btnSiguienteVista9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSiguienteVista9ActionPerformed
+        ControladorCertificadoDefuncion.recopilarInformacionVista9();
+    }//GEN-LAST:event_btnSiguienteVista9ActionPerformed
+
+    private void rdbtnSiRealizoCirugiaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rdbtnSiRealizoCirugiaActionPerformed
+        ControladorCertificadoDefuncion.deshabilitarHabilitarCamposCirugia();
+    }//GEN-LAST:event_rdbtnSiRealizoCirugiaActionPerformed
+
+    private void rdbtnSeIgnoraRealizoCirugiaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rdbtnSeIgnoraRealizoCirugiaActionPerformed
+        ControladorCertificadoDefuncion.deshabilitarHabilitarCamposCirugia();
+    }//GEN-LAST:event_rdbtnSeIgnoraRealizoCirugiaActionPerformed
+
+    private void btnSiguienteVista10ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSiguienteVista10ActionPerformed
+        ControladorCertificadoDefuncion.recopilarInformacionVista10();
+    }//GEN-LAST:event_btnSiguienteVista10ActionPerformed
+
+    private void btnSiguienteVista11ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSiguienteVista11ActionPerformed
+        ControladorCertificadoDefuncion.recopilarInformacionVista11();
+    }//GEN-LAST:event_btnSiguienteVista11ActionPerformed
+
+    private void rdbtnSiPracticoNecropsiaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rdbtnSiPracticoNecropsiaActionPerformed
+        ControladorCertificadoDefuncion.deshabilitarHabilitarCamposNecropsia();
+    }//GEN-LAST:event_rdbtnSiPracticoNecropsiaActionPerformed
+
+    private void rdbtnNoPracticoNecropsiaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rdbtnNoPracticoNecropsiaActionPerformed
+        ControladorCertificadoDefuncion.deshabilitarHabilitarCamposNecropsia();
+    }//GEN-LAST:event_rdbtnNoPracticoNecropsiaActionPerformed
+
+    private void rdbtnSeIgnoraPracticoNecropsiaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rdbtnSeIgnoraPracticoNecropsiaActionPerformed
+        ControladorCertificadoDefuncion.deshabilitarHabilitarCamposNecropsia();
+    }//GEN-LAST:event_rdbtnSeIgnoraPracticoNecropsiaActionPerformed
+
+    private void btnSiguienteVista12ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSiguienteVista12ActionPerformed
+       ControladorCertificadoDefuncion.recopilarInformacionVista12();
+    }//GEN-LAST:event_btnSiguienteVista12ActionPerformed
+
+    private void btnSiguienteVista13ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSiguienteVista13ActionPerformed
+        ControladorCertificadoDefuncion.recopilarInformacionVista13();
+    }//GEN-LAST:event_btnSiguienteVista13ActionPerformed
+
+    private void btnSiguienteVista14ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSiguienteVista14ActionPerformed
+        ControladorCertificadoDefuncion.recopilarInformacionVista14();
+    }//GEN-LAST:event_btnSiguienteVista14ActionPerformed
+
+    private void btnSiguienteVista15ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSiguienteVista15ActionPerformed
+       ControladorCertificadoDefuncion.recopilarInformacionVista15();
+    }//GEN-LAST:event_btnSiguienteVista15ActionPerformed
+
+    private void rdbtnMedicoTratanteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rdbtnMedicoTratanteActionPerformed
+        ControladorCertificadoDefuncion.deshabilitarHabilitarCedulaMedico();
+        ControladorCertificadoDefuncion.deshabilitarHabilitarEspecifiqueCertificante();
+    }//GEN-LAST:event_rdbtnMedicoTratanteActionPerformed
+
+    private void rdbtnMedicoLegistaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rdbtnMedicoLegistaActionPerformed
+        ControladorCertificadoDefuncion.deshabilitarHabilitarCedulaMedico();
+        ControladorCertificadoDefuncion.deshabilitarHabilitarEspecifiqueCertificante();
+    }//GEN-LAST:event_rdbtnMedicoLegistaActionPerformed
+
+    private void rdbtnOtroMedicoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rdbtnOtroMedicoActionPerformed
+        ControladorCertificadoDefuncion.deshabilitarHabilitarCedulaMedico();
+        ControladorCertificadoDefuncion.deshabilitarHabilitarEspecifiqueCertificante();
+    }//GEN-LAST:event_rdbtnOtroMedicoActionPerformed
+
+    private void rdbtnPersonaAutorizadaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rdbtnPersonaAutorizadaActionPerformed
+        ControladorCertificadoDefuncion.deshabilitarHabilitarCedulaMedico();
+        ControladorCertificadoDefuncion.deshabilitarHabilitarEspecifiqueCertificante();
+    }//GEN-LAST:event_rdbtnPersonaAutorizadaActionPerformed
+
+    private void btnSiguienteVista16ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSiguienteVista16ActionPerformed
+        ControladorCertificadoDefuncion.recopilarInformacionVista16();
+    }//GEN-LAST:event_btnSiguienteVista16ActionPerformed
+
+    private void btnSiguienteVista17ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSiguienteVista17ActionPerformed
+        ControladorCertificadoDefuncion.recopilarInformacionVista17();
+    }//GEN-LAST:event_btnSiguienteVista17ActionPerformed
+
+    private void btnEnviarFormularioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEnviarFormularioActionPerformed
+        ControladorCertificadoDefuncion.recopilarInformacionVista18();
+    }//GEN-LAST:event_btnEnviarFormularioActionPerformed
+
+    public JRadioButton getRdbtnNoOcurrioDesempeñoTrabajo() {
+        return rdbtnNoOcurrioDesempeñoTrabajo;
+    }
+
+    public JRadioButton getRdbtnSeIgnoraOcurrioDesempeñoTrabajo() {
+        return rdbtnSeIgnoraOcurrioDesempeñoTrabajo;
+    }
+
+    public JRadioButton getRdbtnSiOcurrioDesempeñoTrabajo() {
+        return rdbtnSiOcurrioDesempeñoTrabajo;
+    }
     private static final Logger LOG = Logger.getLogger(VistaGeneraCertificado.class.getName());
 
     public JRadioButton getRdbtnMuerteDespuesPartoAborto() {
@@ -7012,7 +7374,7 @@ public class VistaGeneraCertificado extends javax.swing.JFrame {
     }
 
     public JRadioButton getTxtNoOcurrioDesempeñoTrabajo() {
-        return txtNoOcurrioDesempeñoTrabajo;
+        return rdbtnNoOcurrioDesempeñoTrabajo;
     }
 
     public JTextField getTxtNombreAsentamientoHumanoCertificante() {
@@ -7104,11 +7466,11 @@ public class VistaGeneraCertificado extends javax.swing.JFrame {
     }
 
     public JRadioButton getTxtSeIgnoraOcurrioDesempeñoTrabajo() {
-        return txtSeIgnoraOcurrioDesempeñoTrabajo;
+        return rdbtnSeIgnoraOcurrioDesempeñoTrabajo;
     }
 
     public JRadioButton getTxtSiOcurrioDesempeñoTrabajo() {
-        return txtSiOcurrioDesempeñoTrabajo;
+        return rdbtnSiOcurrioDesempeñoTrabajo;
     }
 
     public JTextField getTxtTelefonoCertificante() {
@@ -7140,7 +7502,7 @@ public class VistaGeneraCertificado extends javax.swing.JFrame {
     }
 
     public JTextField getRdbtnDefuncionNombreUnidadMedica() {
-        return rdbtnDefuncionNombreUnidadMedica;
+        return txtDefuncionNombreUnidadMedica;
     }
 
     public JRadioButton getRdbtnDefuncionOtraUnidadMedica() {
@@ -7352,7 +7714,7 @@ public class VistaGeneraCertificado extends javax.swing.JFrame {
     }
 
     public JTextField getRdbtnDefuncionClaveUnicaEstablecimientos() {
-        return rdbtnDefuncionClaveUnicaEstablecimientos;
+        return txtDefuncionClaveUnicaEstablecimientos;
     }
 
     public JRadioButton getRdbtnDefuncionHogar() {
@@ -7407,6 +7769,7 @@ public class VistaGeneraCertificado extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnEnviarFormulario;
     private javax.swing.JButton btnSiguienteVista1;
     private javax.swing.JButton btnSiguienteVista10;
     private javax.swing.JButton btnSiguienteVista11;
@@ -7731,7 +8094,6 @@ public class VistaGeneraCertificado extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JSeparator jSeparator22;
     private javax.swing.JSeparator jSeparator24;
-    private javax.swing.JSeparator jSeparator27;
     private javax.swing.JSeparator jSeparator33;
     private javax.swing.JSeparator jSeparator56;
     private javax.swing.JSeparator jSeparator64;
@@ -7744,12 +8106,10 @@ public class VistaGeneraCertificado extends javax.swing.JFrame {
     private javax.swing.JRadioButton rdbtnAutoridadCivil;
     private javax.swing.JRadioButton rdbtnCalleoCarretera;
     private javax.swing.JRadioButton rdbtnCasado;
-    private javax.swing.JTextField rdbtnDefuncionClaveUnicaEstablecimientos;
     private javax.swing.JRadioButton rdbtnDefuncionHogar;
     private javax.swing.JRadioButton rdbtnDefuncionImss;
     private javax.swing.JRadioButton rdbtnDefuncionImssBienestar;
     private javax.swing.JRadioButton rdbtnDefuncionIssste;
-    private javax.swing.JTextField rdbtnDefuncionNombreUnidadMedica;
     private javax.swing.JRadioButton rdbtnDefuncionOtraUnidadMedica;
     private javax.swing.JRadioButton rdbtnDefuncionOtroLugar;
     private javax.swing.JRadioButton rdbtnDefuncionPemex;
@@ -7792,6 +8152,7 @@ public class VistaGeneraCertificado extends javax.swing.JFrame {
     private javax.swing.JRadioButton rdbtnNoIndigena;
     private javax.swing.JRadioButton rdbtnNoLenguaIndigena;
     private javax.swing.JRadioButton rdbtnNoMuerteEncefalica;
+    private javax.swing.JRadioButton rdbtnNoOcurrioDesempeñoTrabajo;
     private javax.swing.JRadioButton rdbtnNoPracticoNecropsia;
     private javax.swing.JRadioButton rdbtnNoPuedeDeterminarse;
     private javax.swing.JRadioButton rdbtnNoRealizoCirugia;
@@ -7812,6 +8173,7 @@ public class VistaGeneraCertificado extends javax.swing.JFrame {
     private javax.swing.JRadioButton rdbtnSeIgnoraLenguaIndigena;
     private javax.swing.JRadioButton rdbtnSeIgnoraLugar;
     private javax.swing.JRadioButton rdbtnSeIgnoraNacionalidad;
+    private javax.swing.JRadioButton rdbtnSeIgnoraOcurrioDesempeñoTrabajo;
     private javax.swing.JRadioButton rdbtnSeIgnoraPracticoNecropsia;
     private javax.swing.JRadioButton rdbtnSeIgnoraRealizoCirugia;
     private javax.swing.JRadioButton rdbtnSeIgnoraSexo;
@@ -7837,6 +8199,7 @@ public class VistaGeneraCertificado extends javax.swing.JFrame {
     private javax.swing.JRadioButton rdbtnSiIndigena;
     private javax.swing.JRadioButton rdbtnSiLenguaIndigena;
     private javax.swing.JRadioButton rdbtnSiMuerteEncefalica;
+    private javax.swing.JRadioButton rdbtnSiOcurrioDesempeñoTrabajo;
     private javax.swing.JRadioButton rdbtnSiPracticoNecropsia;
     private javax.swing.JRadioButton rdbtnSiRealizoCirugia;
     private javax.swing.JRadioButton rdbtnSiTrabajaba;
@@ -7879,6 +8242,8 @@ public class VistaGeneraCertificado extends javax.swing.JFrame {
     private javax.swing.JTextField txtCodigoPostalDefuncion;
     private javax.swing.JTextField txtCodigoPostalLesion;
     private javax.swing.JTextField txtCurp;
+    private javax.swing.JTextField txtDefuncionClaveUnicaEstablecimientos;
+    private javax.swing.JTextField txtDefuncionNombreUnidadMedica;
     private javax.swing.JTextArea txtDescripcionSituacion;
     private javax.swing.JTextField txtDiaDefuncion;
     private javax.swing.JTextField txtDiaNacimiento;
@@ -7921,7 +8286,6 @@ public class VistaGeneraCertificado extends javax.swing.JFrame {
     private javax.swing.JTextField txtMunicipioAlcaldiaLesion;
     private javax.swing.JTextField txtMunicipioDefuncion;
     private javax.swing.JTextField txtMunicipioRegistro;
-    private javax.swing.JRadioButton txtNoOcurrioDesempeñoTrabajo;
     private javax.swing.JTextField txtNombre;
     private javax.swing.JTextField txtNombreAsentamientoHumano;
     private javax.swing.JTextField txtNombreAsentamientoHumanoCertificante;
@@ -7952,10 +8316,8 @@ public class VistaGeneraCertificado extends javax.swing.JFrame {
     private javax.swing.JTextField txtParentescoFamiliar;
     private javax.swing.JTextField txtPesoAlNacer;
     private javax.swing.JTextField txtRelacionAgresorFallecido;
-    private javax.swing.JRadioButton txtSeIgnoraOcurrioDesempeñoTrabajo;
     private javax.swing.JTextField txtSemanasGestacion;
     private javax.swing.JTextField txtServiciosDeSaludEspecifique;
-    private javax.swing.JRadioButton txtSiOcurrioDesempeñoTrabajo;
     private javax.swing.JTextField txtTelefonoCertificante;
     private javax.swing.JTextField txtTipoAsentamientoHumano;
     private javax.swing.JTextField txtTipoAsentamientoHumanoCertificante;

@@ -1059,6 +1059,9 @@
                     </Property>
                     <Property name="text" type="java.lang.String" value="Si"/>
                   </Properties>
+                  <Events>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="rdbtnSiLenguaIndigenaActionPerformed"/>
+                  </Events>
                 </Component>
                 <Component class="javax.swing.JRadioButton" name="rdbtnNoLenguaIndigena">
                   <Properties>
@@ -1092,6 +1095,9 @@
                     </Property>
                     <Property name="text" type="java.lang.String" value="Se ignora"/>
                   </Properties>
+                  <Events>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="rdbtnSeIgnoraLenguaIndigenaActionPerformed"/>
+                  </Events>
                 </Component>
                 <Component class="javax.swing.JLabel" name="jLabel18">
                   <Properties>
@@ -1103,11 +1109,13 @@
                 </Component>
                 <Component class="javax.swing.JTextField" name="txtEspecifiqueLenguaIndigena">
                   <Properties>
+                    <Property name="editable" type="boolean" value="false"/>
                     <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
                       <Border info="org.netbeans.modules.form.compat2.border.BevelBorderInfo">
                         <BevelBorder/>
                       </Border>
                     </Property>
+                    <Property name="enabled" type="boolean" value="false"/>
                   </Properties>
                 </Component>
               </SubComponents>
@@ -1223,6 +1231,9 @@
                     </Property>
                     <Property name="text" type="java.lang.String" value="Se ignora"/>
                   </Properties>
+                  <Events>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="rdbtnSeIgnoraNacionalidadActionPerformed"/>
+                  </Events>
                 </Component>
                 <Component class="javax.swing.JLabel" name="jLabel20">
                   <Properties>
@@ -1234,11 +1245,13 @@
                 </Component>
                 <Component class="javax.swing.JTextField" name="txtEspecifiqueNacionalidad">
                   <Properties>
+                    <Property name="editable" type="boolean" value="false"/>
                     <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
                       <Border info="org.netbeans.modules.form.compat2.border.BevelBorderInfo">
                         <BevelBorder/>
                       </Border>
                     </Property>
+                    <Property name="enabled" type="boolean" value="false"/>
                   </Properties>
                   <Events>
                     <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="txtEspecifiqueNacionalidadActionPerformed"/>
@@ -3145,15 +3158,10 @@
                           <Component id="jLabel54" min="-2" max="-2" attributes="0"/>
                           <EmptySpace min="-2" pref="128" max="-2" attributes="0"/>
                       </Group>
-                      <Group type="102" attributes="0">
-                          <EmptySpace min="-2" pref="820" max="-2" attributes="0"/>
-                          <Component id="jSeparator27" min="-2" pref="50" max="-2" attributes="0"/>
-                          <EmptySpace pref="40" max="32767" attributes="0"/>
-                      </Group>
                       <Group type="102" alignment="1" attributes="0">
                           <EmptySpace min="-2" pref="61" max="-2" attributes="0"/>
                           <Component id="txtNombreInf" min="-2" pref="218" max="-2" attributes="0"/>
-                          <EmptySpace max="32767" attributes="0"/>
+                          <EmptySpace pref="77" max="32767" attributes="0"/>
                           <Component id="txtApellidoPaternoInf" min="-2" pref="218" max="-2" attributes="0"/>
                           <EmptySpace min="-2" pref="51" max="-2" attributes="0"/>
                           <Component id="txtApellidoMaternoInf" min="-2" pref="218" max="-2" attributes="0"/>
@@ -3177,9 +3185,7 @@
                               <Component id="txtApellidoPaternoInf" alignment="3" min="-2" pref="35" max="-2" attributes="0"/>
                               <Component id="txtApellidoMaternoInf" alignment="3" min="-2" pref="35" max="-2" attributes="0"/>
                           </Group>
-                          <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                          <Component id="jSeparator27" min="-2" pref="10" max="-2" attributes="0"/>
-                          <EmptySpace pref="11" max="32767" attributes="0"/>
+                          <EmptySpace pref="33" max="32767" attributes="0"/>
                           <Group type="103" groupAlignment="3" attributes="0">
                               <Component id="jLabel52" alignment="3" min="-2" max="-2" attributes="0"/>
                               <Component id="jLabel53" alignment="3" min="-2" max="-2" attributes="0"/>
@@ -3191,8 +3197,6 @@
                 </DimensionLayout>
               </Layout>
               <SubComponents>
-                <Component class="javax.swing.JSeparator" name="jSeparator27">
-                </Component>
                 <Component class="javax.swing.JLabel" name="jLabel52">
                   <Properties>
                     <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
@@ -3471,11 +3475,11 @@
                                       </Group>
                                       <Group type="102" alignment="0" attributes="0">
                                           <EmptySpace min="-2" pref="46" max="-2" attributes="0"/>
-                                          <Component id="rdbtnDefuncionNombreUnidadMedica" min="-2" pref="264" max="-2" attributes="0"/>
+                                          <Component id="txtDefuncionNombreUnidadMedica" min="-2" pref="264" max="-2" attributes="0"/>
                                       </Group>
                                       <Group type="102" alignment="0" attributes="0">
                                           <EmptySpace min="-2" pref="43" max="-2" attributes="0"/>
-                                          <Component id="rdbtnDefuncionClaveUnicaEstablecimientos" min="-2" pref="265" max="-2" attributes="0"/>
+                                          <Component id="txtDefuncionClaveUnicaEstablecimientos" min="-2" pref="265" max="-2" attributes="0"/>
                                       </Group>
                                   </Group>
                               </Group>
@@ -3530,11 +3534,11 @@
                                   <EmptySpace type="separate" max="-2" attributes="0"/>
                                   <Group type="103" groupAlignment="3" attributes="0">
                                       <Component id="jLabel59" alignment="3" min="-2" max="-2" attributes="0"/>
-                                      <Component id="rdbtnDefuncionNombreUnidadMedica" alignment="3" min="-2" max="-2" attributes="0"/>
+                                      <Component id="txtDefuncionNombreUnidadMedica" alignment="3" min="-2" max="-2" attributes="0"/>
                                   </Group>
                                   <EmptySpace pref="58" max="32767" attributes="0"/>
                                   <Group type="103" groupAlignment="3" attributes="0">
-                                      <Component id="rdbtnDefuncionClaveUnicaEstablecimientos" alignment="3" min="-2" max="-2" attributes="0"/>
+                                      <Component id="txtDefuncionClaveUnicaEstablecimientos" alignment="3" min="-2" max="-2" attributes="0"/>
                                       <Component id="jLabel60" alignment="3" min="-2" max="-2" attributes="0"/>
                                   </Group>
                                   <EmptySpace min="-2" pref="15" max="-2" attributes="0"/>
@@ -3579,6 +3583,9 @@
                     </Property>
                     <Property name="text" type="java.lang.String" value="Secretar&#xed;a de Salud"/>
                   </Properties>
+                  <Events>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="rdbtnDefuncionSecretariaSaludActionPerformed"/>
+                  </Events>
                 </Component>
                 <Component class="javax.swing.JRadioButton" name="rdbtnDefuncionImssBienestar">
                   <Properties>
@@ -3604,6 +3611,9 @@
                     </Property>
                     <Property name="text" type="java.lang.String" value="IMSS"/>
                   </Properties>
+                  <Events>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="rdbtnDefuncionImssActionPerformed"/>
+                  </Events>
                 </Component>
                 <Component class="javax.swing.JRadioButton" name="rdbtnDefuncionIssste">
                   <Properties>
@@ -3615,6 +3625,9 @@
                     </Property>
                     <Property name="text" type="java.lang.String" value="ISSSTE"/>
                   </Properties>
+                  <Events>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="rdbtnDefuncionIsssteActionPerformed"/>
+                  </Events>
                 </Component>
                 <Component class="javax.swing.JRadioButton" name="rdbtnDefuncionPemex">
                   <Properties>
@@ -3626,6 +3639,9 @@
                     </Property>
                     <Property name="text" type="java.lang.String" value="PEMEX"/>
                   </Properties>
+                  <Events>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="rdbtnDefuncionPemexActionPerformed"/>
+                  </Events>
                 </Component>
                 <Component class="javax.swing.JRadioButton" name="rdbtnDefuncionSedena">
                   <Properties>
@@ -3637,6 +3653,9 @@
                     </Property>
                     <Property name="text" type="java.lang.String" value="SEDENA"/>
                   </Properties>
+                  <Events>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="rdbtnDefuncionSedenaActionPerformed"/>
+                  </Events>
                 </Component>
                 <Component class="javax.swing.JRadioButton" name="rdbtnDefuncionSemar">
                   <Properties>
@@ -3648,6 +3667,9 @@
                     </Property>
                     <Property name="text" type="java.lang.String" value="SEMAR"/>
                   </Properties>
+                  <Events>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="rdbtnDefuncionSemarActionPerformed"/>
+                  </Events>
                 </Component>
                 <Component class="javax.swing.JRadioButton" name="rdbtnDefuncionOtraUnidadMedica">
                   <Properties>
@@ -3659,6 +3681,9 @@
                     </Property>
                     <Property name="text" type="java.lang.String" value="Otra unidad m&#xe9;dica p&#xfa;blica"/>
                   </Properties>
+                  <Events>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="rdbtnDefuncionOtraUnidadMedicaActionPerformed"/>
+                  </Events>
                 </Component>
                 <Component class="javax.swing.JRadioButton" name="rdbtnDefuncionUnidadMedicaPrivada">
                   <Properties>
@@ -3670,26 +3695,33 @@
                     </Property>
                     <Property name="text" type="java.lang.String" value="Unidad m&#xe9;dica privada"/>
                   </Properties>
+                  <Events>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="rdbtnDefuncionUnidadMedicaPrivadaActionPerformed"/>
+                  </Events>
                 </Component>
-                <Component class="javax.swing.JTextField" name="rdbtnDefuncionNombreUnidadMedica">
+                <Component class="javax.swing.JTextField" name="txtDefuncionNombreUnidadMedica">
                   <Properties>
+                    <Property name="editable" type="boolean" value="false"/>
                     <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
                       <Border info="org.netbeans.modules.form.compat2.border.BevelBorderInfo">
                         <BevelBorder/>
                       </Border>
                     </Property>
+                    <Property name="enabled" type="boolean" value="false"/>
                   </Properties>
                 </Component>
-                <Component class="javax.swing.JTextField" name="rdbtnDefuncionClaveUnicaEstablecimientos">
+                <Component class="javax.swing.JTextField" name="txtDefuncionClaveUnicaEstablecimientos">
                   <Properties>
+                    <Property name="editable" type="boolean" value="false"/>
                     <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
                       <Border info="org.netbeans.modules.form.compat2.border.BevelBorderInfo">
                         <BevelBorder/>
                       </Border>
                     </Property>
+                    <Property name="enabled" type="boolean" value="false"/>
                   </Properties>
                   <Events>
-                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="rdbtnDefuncionClaveUnicaEstablecimientosActionPerformed"/>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="txtDefuncionClaveUnicaEstablecimientosActionPerformed"/>
                   </Events>
                 </Component>
                 <Component class="javax.swing.JLabel" name="jLabel59">
@@ -3729,6 +3761,9 @@
                     </Property>
                     <Property name="text" type="java.lang.String" value="V&#xed;a P&#xfa;blica"/>
                   </Properties>
+                  <Events>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="rdbtnDefuncionViaPublicaActionPerformed"/>
+                  </Events>
                 </Component>
                 <Component class="javax.swing.JRadioButton" name="rdbtnDefuncionHogar">
                   <Properties>
@@ -3768,6 +3803,9 @@
                     </Property>
                     <Property name="text" type="java.lang.String" value="Se ignora"/>
                   </Properties>
+                  <Events>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="rdbtnDefuncionSeIgnoraActionPerformed"/>
+                  </Events>
                 </Component>
                 <Component class="javax.swing.JLabel" name="jLabel62">
                   <Properties>
@@ -3789,6 +3827,9 @@
                 </Property>
                 <Property name="text" type="java.lang.String" value="Siguiente"/>
               </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnSiguienteVista7ActionPerformed"/>
+              </Events>
             </Component>
           </SubComponents>
         </Container>
@@ -4227,6 +4268,9 @@
                 </Property>
                 <Property name="text" type="java.lang.String" value="Siguiente"/>
               </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnSiguienteVista8ActionPerformed"/>
+              </Events>
             </Component>
           </SubComponents>
         </Container>
@@ -4758,6 +4802,9 @@
                     </Property>
                     <Property name="text" type="java.lang.String" value="Si"/>
                   </Properties>
+                  <Events>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="rdbtnSiRealizoCirugiaActionPerformed"/>
+                  </Events>
                 </Component>
                 <Component class="javax.swing.JRadioButton" name="rdbtnNoRealizoCirugia">
                   <Properties>
@@ -4783,6 +4830,9 @@
                     </Property>
                     <Property name="text" type="java.lang.String" value="Se ignora"/>
                   </Properties>
+                  <Events>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="rdbtnSeIgnoraRealizoCirugiaActionPerformed"/>
+                  </Events>
                 </Component>
                 <Component class="javax.swing.JLabel" name="jLabel84">
                   <Properties>
@@ -4810,11 +4860,13 @@
                 </Component>
                 <Component class="javax.swing.JTextField" name="txtMesRealizoCirugia">
                   <Properties>
+                    <Property name="editable" type="boolean" value="false"/>
                     <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
                       <Border info="org.netbeans.modules.form.compat2.border.BevelBorderInfo">
                         <BevelBorder/>
                       </Border>
                     </Property>
+                    <Property name="enabled" type="boolean" value="false"/>
                   </Properties>
                   <Events>
                     <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="txtMesRealizoCirugiaActionPerformed"/>
@@ -4822,11 +4874,13 @@
                 </Component>
                 <Component class="javax.swing.JTextField" name="txtA&#xf1;oRealizoCirugia">
                   <Properties>
+                    <Property name="editable" type="boolean" value="false"/>
                     <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
                       <Border info="org.netbeans.modules.form.compat2.border.BevelBorderInfo">
                         <BevelBorder/>
                       </Border>
                     </Property>
+                    <Property name="enabled" type="boolean" value="false"/>
                   </Properties>
                   <Events>
                     <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="txtA&#xf1;oRealizoCirugiaActionPerformed"/>
@@ -4834,11 +4888,13 @@
                 </Component>
                 <Component class="javax.swing.JTextField" name="txtDiaRealizoCirugia">
                   <Properties>
+                    <Property name="editable" type="boolean" value="false"/>
                     <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
                       <Border info="org.netbeans.modules.form.compat2.border.BevelBorderInfo">
                         <BevelBorder/>
                       </Border>
                     </Property>
+                    <Property name="enabled" type="boolean" value="false"/>
                   </Properties>
                   <Events>
                     <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="txtDiaRealizoCirugiaActionPerformed"/>
@@ -4854,11 +4910,13 @@
                 </Component>
                 <Component class="javax.swing.JTextField" name="txtMotivoCirugia">
                   <Properties>
+                    <Property name="editable" type="boolean" value="false"/>
                     <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
                       <Border info="org.netbeans.modules.form.compat2.border.BevelBorderInfo">
                         <BevelBorder/>
                       </Border>
                     </Property>
+                    <Property name="enabled" type="boolean" value="false"/>
                   </Properties>
                   <Events>
                     <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="txtMotivoCirugiaActionPerformed"/>
@@ -4967,6 +5025,9 @@
                 </Property>
                 <Property name="text" type="java.lang.String" value="Siguiente"/>
               </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnSiguienteVista9ActionPerformed"/>
+              </Events>
             </Component>
           </SubComponents>
         </Container>
@@ -5549,6 +5610,9 @@
                 </Property>
                 <Property name="text" type="java.lang.String" value="Siguiente"/>
               </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnSiguienteVista10ActionPerformed"/>
+              </Events>
             </Component>
           </SubComponents>
         </Container>
@@ -5979,6 +6043,9 @@
                 </Property>
                 <Property name="text" type="java.lang.String" value="Siguiente"/>
               </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnSiguienteVista11ActionPerformed"/>
+              </Events>
             </Component>
           </SubComponents>
         </Container>
@@ -6168,6 +6235,9 @@
                     </Property>
                     <Property name="text" type="java.lang.String" value="Si"/>
                   </Properties>
+                  <Events>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="rdbtnSiPracticoNecropsiaActionPerformed"/>
+                  </Events>
                 </Component>
                 <Component class="javax.swing.JRadioButton" name="rdbtnSiUtilizaronHallazgos">
                   <Properties>
@@ -6178,6 +6248,7 @@
                       <Font name="Yu Gothic UI Light" size="12" style="0"/>
                     </Property>
                     <Property name="text" type="java.lang.String" value="Si"/>
+                    <Property name="enabled" type="boolean" value="false"/>
                   </Properties>
                   <Events>
                     <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="rdbtnSiUtilizaronHallazgosActionPerformed"/>
@@ -6192,6 +6263,7 @@
                       <Font name="Yu Gothic UI Light" size="12" style="0"/>
                     </Property>
                     <Property name="text" type="java.lang.String" value="No"/>
+                    <Property name="enabled" type="boolean" value="false"/>
                   </Properties>
                   <Events>
                     <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="rdbtnNoUtilizaronHallazgosActionPerformed"/>
@@ -6215,6 +6287,9 @@
                     </Property>
                     <Property name="text" type="java.lang.String" value="No"/>
                   </Properties>
+                  <Events>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="rdbtnNoPracticoNecropsiaActionPerformed"/>
+                  </Events>
                 </Component>
                 <Component class="javax.swing.JRadioButton" name="rdbtnSeIgnoraPracticoNecropsia">
                   <Properties>
@@ -6226,6 +6301,9 @@
                     </Property>
                     <Property name="text" type="java.lang.String" value="Se ignora"/>
                   </Properties>
+                  <Events>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="rdbtnSeIgnoraPracticoNecropsiaActionPerformed"/>
+                  </Events>
                 </Component>
                 <Component class="javax.swing.JLabel" name="jLabel125">
                   <Properties>
@@ -6242,6 +6320,7 @@
                 <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                   <Color blue="f8" green="e1" red="b7" type="rgb"/>
                 </Property>
+                <Property name="enabled" type="boolean" value="false"/>
               </Properties>
 
               <Layout>
@@ -6383,6 +6462,7 @@
                       <Font name="Yu Gothic UI Light" size="12" style="0"/>
                     </Property>
                     <Property name="text" type="java.lang.String" value="El embarazo"/>
+                    <Property name="enabled" type="boolean" value="false"/>
                   </Properties>
                 </Component>
                 <Component class="javax.swing.JRadioButton" name="rdbtnMuerteDuranteParto">
@@ -6394,6 +6474,7 @@
                       <Font name="Yu Gothic UI Light" size="12" style="0"/>
                     </Property>
                     <Property name="text" type="java.lang.String" value="El parto"/>
+                    <Property name="enabled" type="boolean" value="false"/>
                   </Properties>
                 </Component>
                 <Component class="javax.swing.JRadioButton" name="rdbtnMuerteDurantePuerperio">
@@ -6405,6 +6486,7 @@
                       <Font name="Yu Gothic UI Light" size="12" style="0"/>
                     </Property>
                     <Property name="text" type="java.lang.String" value="El puerperio"/>
+                    <Property name="enabled" type="boolean" value="false"/>
                   </Properties>
                 </Component>
                 <Component class="javax.swing.JRadioButton" name="rdbtnMuerteDespuesPartoAborto">
@@ -6416,6 +6498,7 @@
                       <Font name="Yu Gothic UI Light" size="12" style="0"/>
                     </Property>
                     <Property name="text" type="java.lang.String" value="43 d&#xed;as a 11 meses despu&#xe9;s del parto o aborto"/>
+                    <Property name="enabled" type="boolean" value="false"/>
                   </Properties>
                   <Events>
                     <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="rdbtnMuerteDespuesPartoAbortoActionPerformed"/>
@@ -6430,6 +6513,7 @@
                       <Font name="Yu Gothic UI Light" size="12" style="0"/>
                     </Property>
                     <Property name="text" type="java.lang.String" value="No estuvo embarazada en los &#xfa;ltimos 11 meses previos a la defunci&#xf3;n"/>
+                    <Property name="enabled" type="boolean" value="false"/>
                   </Properties>
                 </Component>
                 <Component class="javax.swing.JSeparator" name="jSeparator64">
@@ -6468,6 +6552,7 @@
                       <Font name="Yu Gothic UI Light" size="12" style="0"/>
                     </Property>
                     <Property name="text" type="java.lang.String" value="Si"/>
+                    <Property name="enabled" type="boolean" value="false"/>
                   </Properties>
                   <Events>
                     <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="rdbtnSiComplicacionesActionPerformed"/>
@@ -6482,6 +6567,7 @@
                       <Font name="Yu Gothic UI Light" size="12" style="0"/>
                     </Property>
                     <Property name="text" type="java.lang.String" value="No"/>
+                    <Property name="enabled" type="boolean" value="false"/>
                   </Properties>
                 </Component>
                 <Component class="javax.swing.JSeparator" name="jSeparator65">
@@ -6511,6 +6597,7 @@
                       <Font name="Yu Gothic UI Light" size="12" style="0"/>
                     </Property>
                     <Property name="text" type="java.lang.String" value="Si"/>
+                    <Property name="enabled" type="boolean" value="false"/>
                   </Properties>
                   <Events>
                     <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="rdbtnSiComplicacionesPropiasActionPerformed"/>
@@ -6525,6 +6612,7 @@
                       <Font name="Yu Gothic UI Light" size="12" style="0"/>
                     </Property>
                     <Property name="text" type="java.lang.String" value="No"/>
+                    <Property name="enabled" type="boolean" value="false"/>
                   </Properties>
                 </Component>
               </SubComponents>
@@ -6540,7 +6628,7 @@
                 <DimensionLayout dim="0">
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Group type="102" alignment="0" attributes="0">
-                          <EmptySpace max="32767" attributes="0"/>
+                          <EmptySpace pref="73" max="32767" attributes="0"/>
                           <Group type="103" groupAlignment="0" attributes="0">
                               <Group type="102" alignment="1" attributes="0">
                                   <Component id="jLabel126" min="-2" pref="200" max="-2" attributes="0"/>
@@ -6553,32 +6641,24 @@
                           </Group>
                       </Group>
                       <Group type="102" alignment="0" attributes="0">
+                          <EmptySpace min="-2" pref="89" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="0" attributes="0">
                               <Group type="102" alignment="0" attributes="0">
-                                  <EmptySpace min="-2" pref="39" max="-2" attributes="0"/>
-                                  <Component id="rdbtnSiMuerteEncefalica" min="-2" max="-2" attributes="0"/>
+                                  <EmptySpace min="6" pref="6" max="-2" attributes="0"/>
+                                  <Component id="rdbtnSiDonadorOrganos" min="-2" max="-2" attributes="0"/>
+                                  <EmptySpace min="-2" pref="57" max="-2" attributes="0"/>
+                                  <Component id="rdbtnNoDonadorOrganos" min="-2" max="-2" attributes="0"/>
                               </Group>
-                              <Group type="102" alignment="0" attributes="0">
-                                  <EmptySpace min="-2" pref="89" max="-2" attributes="0"/>
-                                  <Group type="103" groupAlignment="0" attributes="0">
-                                      <Group type="102" alignment="0" attributes="0">
-                                          <EmptySpace min="6" pref="6" max="-2" attributes="0"/>
-                                          <Component id="rdbtnSiDonadorOrganos" min="-2" max="-2" attributes="0"/>
-                                          <EmptySpace min="-2" pref="57" max="-2" attributes="0"/>
-                                          <Component id="rdbtnNoDonadorOrganos" min="-2" max="-2" attributes="0"/>
-                                      </Group>
-                                      <Component id="jLabel127" alignment="0" min="-2" pref="152" max="-2" attributes="0"/>
-                                  </Group>
-                              </Group>
+                              <Component id="jLabel127" alignment="0" min="-2" pref="152" max="-2" attributes="0"/>
                           </Group>
                           <EmptySpace max="32767" attributes="0"/>
                       </Group>
-                      <Group type="103" rootIndex="1" groupAlignment="0" attributes="0">
-                          <Group type="102" alignment="1" attributes="0">
-                              <EmptySpace pref="224" max="32767" attributes="0"/>
-                              <Component id="rdbtnNoMuerteEncefalica" min="-2" max="-2" attributes="0"/>
-                              <EmptySpace min="-2" pref="82" max="-2" attributes="0"/>
-                          </Group>
+                      <Group type="102" alignment="0" attributes="0">
+                          <EmptySpace min="-2" pref="39" max="-2" attributes="0"/>
+                          <Component id="rdbtnSiMuerteEncefalica" min="-2" max="-2" attributes="0"/>
+                          <EmptySpace max="32767" attributes="0"/>
+                          <Component id="rdbtnNoMuerteEncefalica" min="-2" max="-2" attributes="0"/>
+                          <EmptySpace min="-2" pref="82" max="-2" attributes="0"/>
                       </Group>
                   </Group>
                 </DimensionLayout>
@@ -6590,7 +6670,10 @@
                           <EmptySpace max="-2" attributes="0"/>
                           <Component id="jLabel118" min="-2" max="-2" attributes="0"/>
                           <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                          <Component id="rdbtnSiMuerteEncefalica" min="-2" max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="3" attributes="0">
+                              <Component id="rdbtnSiMuerteEncefalica" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="rdbtnNoMuerteEncefalica" alignment="3" min="-2" max="-2" attributes="0"/>
+                          </Group>
                           <EmptySpace type="separate" max="-2" attributes="0"/>
                           <Component id="jLabel127" min="-2" max="-2" attributes="0"/>
                           <EmptySpace max="-2" attributes="0"/>
@@ -6599,13 +6682,6 @@
                               <Component id="rdbtnNoDonadorOrganos" alignment="3" min="-2" max="-2" attributes="0"/>
                           </Group>
                           <EmptySpace max="32767" attributes="0"/>
-                      </Group>
-                      <Group type="103" rootIndex="1" groupAlignment="0" attributes="0">
-                          <Group type="102" alignment="1" attributes="0">
-                              <EmptySpace pref="90" max="32767" attributes="0"/>
-                              <Component id="rdbtnNoMuerteEncefalica" min="-2" max="-2" attributes="0"/>
-                              <EmptySpace min="-2" pref="69" max="-2" attributes="0"/>
-                          </Group>
                       </Group>
                   </Group>
                 </DimensionLayout>
@@ -6650,6 +6726,7 @@
                       <Font name="Yu Gothic UI Light" size="12" style="0"/>
                     </Property>
                     <Property name="text" type="java.lang.String" value="No"/>
+                    <Property name="enabled" type="boolean" value="false"/>
                   </Properties>
                   <Events>
                     <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="rdbtnNoDonadorOrganosActionPerformed"/>
@@ -6672,6 +6749,7 @@
                       <Font name="Yu Gothic UI Light" size="12" style="0"/>
                     </Property>
                     <Property name="text" type="java.lang.String" value="Si"/>
+                    <Property name="enabled" type="boolean" value="false"/>
                   </Properties>
                   <Events>
                     <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="rdbtnSiDonadorOrganosActionPerformed"/>
@@ -6703,6 +6781,9 @@
                 </Property>
                 <Property name="text" type="java.lang.String" value="Siguiente"/>
               </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnSiguienteVista12ActionPerformed"/>
+              </Events>
             </Component>
           </SubComponents>
         </Container>
@@ -6933,14 +7014,14 @@
                           <EmptySpace max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="1" attributes="0">
                               <Group type="102" alignment="1" attributes="0">
-                                  <Component id="txtSiOcurrioDesempeñoTrabajo" min="-2" max="-2" attributes="0"/>
+                                  <Component id="rdbtnSiOcurrioDesempeñoTrabajo" min="-2" max="-2" attributes="0"/>
                                   <EmptySpace min="-2" pref="16" max="-2" attributes="0"/>
                                   <Group type="103" groupAlignment="0" attributes="0">
-                                      <Component id="txtSeIgnoraOcurrioDesempeñoTrabajo" alignment="0" min="-2" max="-2" attributes="0"/>
+                                      <Component id="rdbtnSeIgnoraOcurrioDesempeñoTrabajo" alignment="0" min="-2" max="-2" attributes="0"/>
                                       <Group type="102" alignment="0" attributes="0">
                                           <Component id="jLabel132" min="-2" max="-2" attributes="0"/>
                                           <EmptySpace max="32767" attributes="0"/>
-                                          <Component id="txtNoOcurrioDesempeñoTrabajo" min="-2" max="-2" attributes="0"/>
+                                          <Component id="rdbtnNoOcurrioDesempeñoTrabajo" min="-2" max="-2" attributes="0"/>
                                       </Group>
                                   </Group>
                               </Group>
@@ -6969,8 +7050,8 @@
                               <Group type="102" alignment="0" attributes="0">
                                   <EmptySpace min="-2" pref="28" max="-2" attributes="0"/>
                                   <Group type="103" groupAlignment="3" attributes="0">
-                                      <Component id="txtSiOcurrioDesempeñoTrabajo" alignment="3" min="-2" max="-2" attributes="0"/>
-                                      <Component id="txtNoOcurrioDesempeñoTrabajo" alignment="3" min="-2" max="-2" attributes="0"/>
+                                      <Component id="rdbtnSiOcurrioDesempeñoTrabajo" alignment="3" min="-2" max="-2" attributes="0"/>
+                                      <Component id="rdbtnNoOcurrioDesempeñoTrabajo" alignment="3" min="-2" max="-2" attributes="0"/>
                                   </Group>
                                   <EmptySpace max="32767" attributes="0"/>
                               </Group>
@@ -6978,7 +7059,7 @@
                                   <EmptySpace max="-2" attributes="0"/>
                                   <Component id="jLabel132" min="-2" max="-2" attributes="0"/>
                                   <EmptySpace min="-2" pref="33" max="-2" attributes="0"/>
-                                  <Component id="txtSeIgnoraOcurrioDesempeñoTrabajo" max="32767" attributes="0"/>
+                                  <Component id="rdbtnSeIgnoraOcurrioDesempeñoTrabajo" max="32767" attributes="0"/>
                                   <EmptySpace min="-2" pref="15" max="-2" attributes="0"/>
                               </Group>
                           </Group>
@@ -6995,7 +7076,7 @@
                     <Property name="text" type="java.lang.String" value="&#xbf;Ocurri&#xf3; en el desempe&#xf1;o"/>
                   </Properties>
                 </Component>
-                <Component class="javax.swing.JRadioButton" name="txtSiOcurrioDesempe&#xf1;oTrabajo">
+                <Component class="javax.swing.JRadioButton" name="rdbtnSiOcurrioDesempe&#xf1;oTrabajo">
                   <Properties>
                     <Property name="buttonGroup" type="javax.swing.ButtonGroup" editor="org.netbeans.modules.form.RADComponent$ButtonGroupPropertyEditor">
                       <ComponentRef name="buttonGroupAccidentalViolenta"/>
@@ -7006,7 +7087,7 @@
                     <Property name="text" type="java.lang.String" value="Si"/>
                   </Properties>
                 </Component>
-                <Component class="javax.swing.JRadioButton" name="txtNoOcurrioDesempe&#xf1;oTrabajo">
+                <Component class="javax.swing.JRadioButton" name="rdbtnNoOcurrioDesempe&#xf1;oTrabajo">
                   <Properties>
                     <Property name="buttonGroup" type="javax.swing.ButtonGroup" editor="org.netbeans.modules.form.RADComponent$ButtonGroupPropertyEditor">
                       <ComponentRef name="buttonGroupAccidentalViolenta"/>
@@ -7017,10 +7098,10 @@
                     <Property name="text" type="java.lang.String" value="No"/>
                   </Properties>
                   <Events>
-                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="txtNoOcurrioDesempe&#xf1;oTrabajoActionPerformed"/>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="rdbtnNoOcurrioDesempe&#xf1;oTrabajoActionPerformed"/>
                   </Events>
                 </Component>
-                <Component class="javax.swing.JRadioButton" name="txtSeIgnoraOcurrioDesempe&#xf1;oTrabajo">
+                <Component class="javax.swing.JRadioButton" name="rdbtnSeIgnoraOcurrioDesempe&#xf1;oTrabajo">
                   <Properties>
                     <Property name="buttonGroup" type="javax.swing.ButtonGroup" editor="org.netbeans.modules.form.RADComponent$ButtonGroupPropertyEditor">
                       <ComponentRef name="buttonGroupAccidentalViolenta"/>
@@ -7336,6 +7417,9 @@
                 </Property>
                 <Property name="text" type="java.lang.String" value="Siguiente"/>
               </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnSiguienteVista13ActionPerformed"/>
+              </Events>
             </Component>
           </SubComponents>
         </Container>
@@ -7615,6 +7699,9 @@
                 </Property>
                 <Property name="text" type="java.lang.String" value="Siguiente"/>
               </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnSiguienteVista14ActionPerformed"/>
+              </Events>
             </Component>
           </SubComponents>
         </Container>
@@ -8084,6 +8171,9 @@
                 </Property>
                 <Property name="text" type="java.lang.String" value="Siguiente"/>
               </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnSiguienteVista15ActionPerformed"/>
+              </Events>
             </Component>
           </SubComponents>
         </Container>
@@ -8288,6 +8378,9 @@
                     </Property>
                     <Property name="text" type="java.lang.String" value="M&#xe9;dica/o tratante"/>
                   </Properties>
+                  <Events>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="rdbtnMedicoTratanteActionPerformed"/>
+                  </Events>
                 </Component>
                 <Component class="javax.swing.JRadioButton" name="rdbtnMedicoLegista">
                   <Properties>
@@ -8299,6 +8392,9 @@
                     </Property>
                     <Property name="text" type="java.lang.String" value="M&#xe9;dica/o legista"/>
                   </Properties>
+                  <Events>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="rdbtnMedicoLegistaActionPerformed"/>
+                  </Events>
                 </Component>
                 <Component class="javax.swing.JRadioButton" name="rdbtnOtroMedico">
                   <Properties>
@@ -8310,6 +8406,9 @@
                     </Property>
                     <Property name="text" type="java.lang.String" value="Otro m&#xe9;dico"/>
                   </Properties>
+                  <Events>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="rdbtnOtroMedicoActionPerformed"/>
+                  </Events>
                 </Component>
                 <Component class="javax.swing.JRadioButton" name="rdbtnPersonaAutorizada">
                   <Properties>
@@ -8321,6 +8420,9 @@
                     </Property>
                     <Property name="text" type="java.lang.String" value="Persona autorizada por la Secretar&#xed;a de Salud"/>
                   </Properties>
+                  <Events>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="rdbtnPersonaAutorizadaActionPerformed"/>
+                  </Events>
                 </Component>
                 <Component class="javax.swing.JRadioButton" name="rdbtnAutoridadCivil">
                   <Properties>
@@ -8371,11 +8473,13 @@
                 </Component>
                 <Component class="javax.swing.JTextField" name="txtEspecifiqueOtraAutoridad1">
                   <Properties>
+                    <Property name="editable" type="boolean" value="false"/>
                     <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
                       <Border info="org.netbeans.modules.form.compat2.border.BevelBorderInfo">
                         <BevelBorder/>
                       </Border>
                     </Property>
+                    <Property name="enabled" type="boolean" value="false"/>
                   </Properties>
                 </Component>
                 <Component class="javax.swing.JLabel" name="jLabel179">
@@ -8628,11 +8732,13 @@
                 </Component>
                 <Component class="javax.swing.JTextField" name="txtNumCedProfesional">
                   <Properties>
+                    <Property name="editable" type="boolean" value="false"/>
                     <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
                       <Border info="org.netbeans.modules.form.compat2.border.BevelBorderInfo">
                         <BevelBorder/>
                       </Border>
                     </Property>
+                    <Property name="enabled" type="boolean" value="false"/>
                   </Properties>
                 </Component>
               </SubComponents>
@@ -8647,6 +8753,9 @@
                 </Property>
                 <Property name="text" type="java.lang.String" value="Siguiente"/>
               </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnSiguienteVista16ActionPerformed"/>
+              </Events>
             </Component>
           </SubComponents>
         </Container>
@@ -9109,6 +9218,9 @@
                 </Property>
                 <Property name="text" type="java.lang.String" value="Siguiente"/>
               </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnSiguienteVista17ActionPerformed"/>
+              </Events>
             </Component>
           </SubComponents>
         </Container>
@@ -9129,11 +9241,6 @@
           <Layout>
             <DimensionLayout dim="0">
               <Group type="103" groupAlignment="0" attributes="0">
-                  <Group type="102" alignment="1" attributes="0">
-                      <EmptySpace max="32767" attributes="0"/>
-                      <Component id="jPanel64" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace min="-2" pref="236" max="-2" attributes="0"/>
-                  </Group>
                   <Group type="102" alignment="0" attributes="0">
                       <EmptySpace min="-2" pref="22" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" max="-2" attributes="0">
@@ -9150,6 +9257,19 @@
                           </Group>
                       </Group>
                       <EmptySpace pref="65" max="32767" attributes="0"/>
+                  </Group>
+                  <Group type="102" alignment="1" attributes="0">
+                      <EmptySpace max="32767" attributes="0"/>
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Group type="102" alignment="1" attributes="0">
+                              <Component id="jPanel64" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace min="-2" pref="236" max="-2" attributes="0"/>
+                          </Group>
+                          <Group type="102" alignment="1" attributes="0">
+                              <Component id="btnEnviarFormulario" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace min="-2" pref="248" max="-2" attributes="0"/>
+                          </Group>
+                      </Group>
                   </Group>
               </Group>
             </DimensionLayout>
@@ -9176,6 +9296,8 @@
                               <EmptySpace min="-2" pref="59" max="-2" attributes="0"/>
                               <Component id="jPanel68" min="-2" max="-2" attributes="0"/>
                               <EmptySpace max="32767" attributes="0"/>
+                              <Component id="btnEnviarFormulario" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace min="-2" pref="22" max="-2" attributes="0"/>
                           </Group>
                       </Group>
                   </Group>
@@ -9786,6 +9908,14 @@
                 </Component>
               </SubComponents>
             </Container>
+            <Component class="javax.swing.JButton" name="btnEnviarFormulario">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Enviar"/>
+              </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnEnviarFormularioActionPerformed"/>
+              </Events>
+            </Component>
           </SubComponents>
         </Container>
       </SubComponents>
