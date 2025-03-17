@@ -10,13 +10,28 @@ import java.time.Period;
 
 public class ControladorCertificadoDefuncion {
 
+    // Instancia de la vista para generar el certificado de defunción
     public static VistaGeneraCertificado vistaGeneraCertificado = new VistaGeneraCertificado();
+
+    // Instancia de la clase Fallecido para almacenar datos del fallecido
     private static Fallecido fallecido;
+
+    // Instancia de la clase Informante para almacenar datos del informante
     private static Informante informante;
+
+    // Instancia de la clase Defuncion para gestionar los datos de la defunción
     private static Defuncion defuncion;
+
+    // Instancia de la clase Situacion para manejar datos adicionales relacionados
     private static Situacion situacion;
+
+    // Instancia de la clase Certificante para gestionar los datos del certificante
     private static Certificante certificante;
+
+    // Instancia de la clase RegistroCivil para manejar los datos del registro civil
     private static RegistroCivil registroCivil;
+
+    // Bandera para validar si se aplica la condición de mujer entre 10 y 54 años
     private static boolean isMujer1054 = false;
 
     public static void mostrar() {
@@ -130,7 +145,7 @@ public class ControladorCertificadoDefuncion {
         // Construye un StringBuilder para almacenar mensajes de error
         var errores = new StringBuilder();
 
-// Valida si el campo "Entidad Nacimiento" no está vacío
+        // Valida si el campo "Entidad Nacimiento" no está vacío
         if (!vistaGeneraCertificado.getTxtEntidadNacimiento().getText().isEmpty()
                 && !vistaGeneraCertificado.getTxtEntidadNacimiento().getText().isBlank()) {
             fallecido.setEntidadNacimiento(vistaGeneraCertificado.getTxtEntidadNacimiento().getText().trim());
@@ -138,7 +153,7 @@ public class ControladorCertificadoDefuncion {
             errores.append("El campo Entidad Nacimiento no debe ser vacío\n");
         }
 
-// Valida si el campo "CURP" no está vacío
+        // Valida si el campo "CURP" no está vacío
         if (!vistaGeneraCertificado.getTxtCurp().getText().isEmpty()
                 && !vistaGeneraCertificado.getTxtCurp().getText().isBlank()) {
             fallecido.setCurp(vistaGeneraCertificado.getTxtCurp().getText().trim());
@@ -146,7 +161,7 @@ public class ControladorCertificadoDefuncion {
             errores.append("El campo Curp no debe ser vacío\n");
         }
 
-// Valida la opción seleccionada para "Afromexicano"
+        // Valida la opción seleccionada para "Afromexicano"
         if (vistaGeneraCertificado.getRdbtnSiAfromexicano().isSelected()) {
             fallecido.setAfromexicano("Si");
         } else if (vistaGeneraCertificado.getRdbtnNoAfromexicano().isSelected()) {
@@ -157,7 +172,7 @@ public class ControladorCertificadoDefuncion {
             errores.append("El campo Afromexicano no debe ser vacío\n");
         }
 
-// Valida la opción seleccionada para "Indígena"
+        // Valida la opción seleccionada para "Indígena"
         if (vistaGeneraCertificado.getRdbtnSiIndigena().isSelected()) {
             fallecido.setIndigena("Si");
         } else if (vistaGeneraCertificado.getRdbtnNoIndigena().isSelected()) {
@@ -168,7 +183,7 @@ public class ControladorCertificadoDefuncion {
             errores.append("El campo Indigena no debe ser vacío\n");
         }
 
-// Validación para "Habla Lengua Indígena" y campo adicional en caso de respuesta afirmativa
+        // Validación para "Habla Lengua Indígena" y campo adicional en caso de respuesta afirmativa
         if (vistaGeneraCertificado.getRdbtnSiLenguaIndigena().isSelected()) {
             fallecido.setHablaIndigena("Si");
             if (!vistaGeneraCertificado.getTxtEspecifiqueLenguaIndigena().getText().isEmpty()
@@ -185,7 +200,7 @@ public class ControladorCertificadoDefuncion {
             errores.append("El campo Habla Indigena no debe ser vacío\n");
         }
 
-// Valida la opción seleccionada para "Nacionalidad"
+        // Valida la opción seleccionada para "Nacionalidad"
         if (vistaGeneraCertificado.getRdbtnNacionalidadMex().isSelected()) {
             fallecido.setNacionalidad("Mexicana");
         } else if (vistaGeneraCertificado.getRdbtnOtraNacionalidad().isSelected()) {
@@ -203,7 +218,7 @@ public class ControladorCertificadoDefuncion {
             errores.append("El campo Nacionalidad no debe ser vacío");
         }
 
-// Si existen errores, muestra un cuadro de diálogo con los mensajes de error
+        // Si existen errores, muestra un cuadro de diálogo con los mensajes de error
         if (errores.length() > 0) {
             JOptionPane.showMessageDialog(
                     null,
@@ -220,7 +235,7 @@ public class ControladorCertificadoDefuncion {
         // Construye un StringBuilder para acumular mensajes de error
         var errores = new StringBuilder();
 
-// Verifica si la edad no está marcada como "Se ignora"
+        // Verifica si la edad no está marcada como "Se ignora"
         if (!vistaGeneraCertificado.getRdbtnSeIgnoraEdad().isSelected()) {
             fallecido.setSeIgnoraEdad(false);
             try {
@@ -322,7 +337,7 @@ public class ControladorCertificadoDefuncion {
         // Crear un acumulador para mensajes de error
         var errores = new StringBuilder();
 
-// Validar y asignar el campo "Tipo Vialidad"
+        // Validar y asignar el campo "Tipo Vialidad"
         if (!vistaGeneraCertificado.getTxtTipoVialidad().getText().isEmpty()
                 && !vistaGeneraCertificado.getTxtTipoVialidad().getText().isBlank()) {
             fallecido.setTipoVialidad(vistaGeneraCertificado.getTxtTipoVialidad().getText().trim());
@@ -330,7 +345,7 @@ public class ControladorCertificadoDefuncion {
             errores.append("El campo Tipo Vialidad no debe ser vacío\n");
         }
 
-// Validar y asignar el campo "Nombre Vialidad"
+        // Validar y asignar el campo "Nombre Vialidad"
         if (!vistaGeneraCertificado.getTxtNombreVialidad().getText().isEmpty()
                 && !vistaGeneraCertificado.getTxtNombreVialidad().getText().isBlank()) {
             fallecido.setNombreVialidad(vistaGeneraCertificado.getTxtNombreVialidad().getText().trim());
@@ -338,7 +353,7 @@ public class ControladorCertificadoDefuncion {
             errores.append("El campo Nombre Vialidad no debe ser vacío\n");
         }
 
-// Validar y asignar el campo "Número Exterior"
+        // Validar y asignar el campo "Número Exterior"
         if (!vistaGeneraCertificado.getTxtNumExt().getText().isEmpty()
                 && !vistaGeneraCertificado.getTxtNumExt().getText().isBlank()) {
             fallecido.setNumeroExterior(vistaGeneraCertificado.getTxtNumExt().getText().trim());
@@ -346,7 +361,7 @@ public class ControladorCertificadoDefuncion {
             errores.append("El campo Número Exterior no debe ser vacío\n");
         }
 
-// Validar y asignar el campo "Número Interior"
+        // Validar y asignar el campo "Número Interior"
         if (!vistaGeneraCertificado.getTxtNumInt().getText().isEmpty()
                 && !vistaGeneraCertificado.getTxtNumInt().getText().isBlank()) {
             fallecido.setNumeroInterior(vistaGeneraCertificado.getTxtNumInt().getText().trim());
@@ -354,7 +369,7 @@ public class ControladorCertificadoDefuncion {
             errores.append("El campo Número Interior no debe ser vacío\n");
         }
 
-// Validar y asignar el campo "Tipo Asentamiento Humano"
+        // Validar y asignar el campo "Tipo Asentamiento Humano"
         if (!vistaGeneraCertificado.getTxtTipoAsentamientoHumano().getText().isEmpty()
                 && !vistaGeneraCertificado.getTxtTipoAsentamientoHumano().getText().isBlank()) {
             fallecido.setTipoAsentamientoHumano(vistaGeneraCertificado.getTxtTipoAsentamientoHumano().getText().trim());
@@ -362,7 +377,7 @@ public class ControladorCertificadoDefuncion {
             errores.append("El campo Tipo Asentamiento Humano no debe ser vacío\n");
         }
 
-// Validar y asignar el campo "Nombre Asentamiento Humano"
+        // Validar y asignar el campo "Nombre Asentamiento Humano"
         if (!vistaGeneraCertificado.getTxtNombreAsentamientoHumano().getText().isEmpty()
                 && !vistaGeneraCertificado.getTxtNombreAsentamientoHumano().getText().isBlank()) {
             fallecido.setNombreAsentamientoHumano(vistaGeneraCertificado.getTxtNombreAsentamientoHumano().getText().trim());
@@ -370,7 +385,7 @@ public class ControladorCertificadoDefuncion {
             errores.append("El campo Nombre Asentamiento Humano no debe ser vacío\n");
         }
 
-// Validar y asignar el campo "Código Postal"
+        // Validar y asignar el campo "Código Postal"
         if (!vistaGeneraCertificado.getTxtCodigoPostal().getText().isEmpty()
                 && !vistaGeneraCertificado.getTxtCodigoPostal().getText().isBlank()) {
             fallecido.setCodigoPostal(vistaGeneraCertificado.getTxtCodigoPostal().getText().trim());
@@ -378,7 +393,7 @@ public class ControladorCertificadoDefuncion {
             errores.append("El campo Código Postal no debe ser vacío\n");
         }
 
-// Validar y asignar el campo "Localidad"
+        // Validar y asignar el campo "Localidad"
         if (!vistaGeneraCertificado.getTxtLocalidad().getText().isEmpty()
                 && !vistaGeneraCertificado.getTxtLocalidad().getText().isBlank()) {
             fallecido.setLocalidad(vistaGeneraCertificado.getTxtLocalidad().getText().trim());
@@ -386,7 +401,7 @@ public class ControladorCertificadoDefuncion {
             errores.append("El campo Localidad no debe ser vacío\n");
         }
 
-// Validar y asignar el campo "Municipio/Alcaldía"
+        // Validar y asignar el campo "Municipio/Alcaldía"
         if (!vistaGeneraCertificado.getTxtMunicipioAlcaldia().getText().isEmpty()
                 && !vistaGeneraCertificado.getTxtMunicipioAlcaldia().getText().isBlank()) {
             fallecido.setMunicipioAlcaldia(vistaGeneraCertificado.getTxtMunicipioAlcaldia().getText().trim());
@@ -394,7 +409,7 @@ public class ControladorCertificadoDefuncion {
             errores.append("El campo Municipio/Alcaldía no debe ser vacío\n");
         }
 
-// Validar y asignar el campo "Entidad Federativa/País"
+        // Validar y asignar el campo "Entidad Federativa/País"
         if (!vistaGeneraCertificado.getTxtEntidadFederativaPais().getText().isEmpty()
                 && !vistaGeneraCertificado.getTxtEntidadFederativaPais().getText().isBlank()) {
             fallecido.setEntidadFederativaPais(vistaGeneraCertificado.getTxtEntidadFederativaPais().getText().trim());
@@ -402,7 +417,7 @@ public class ControladorCertificadoDefuncion {
             errores.append("El campo Entidad Federativa/País no debe ser vacío\n");
         }
 
-// Mostrar mensajes de error si los hay
+        // Mostrar mensajes de error si los hay
         if (errores.length() > 0) {
             JOptionPane.showMessageDialog(
                     null,
@@ -419,7 +434,7 @@ public class ControladorCertificadoDefuncion {
         // Crear un acumulador para mensajes de error
         var errores = new StringBuilder();
 
-// Validar el campo "Escolaridad"
+        // Validar el campo "Escolaridad"
         if (!vistaGeneraCertificado.getRdbtnEscolaridadSeIgnora().isSelected()) {
             if (vistaGeneraCertificado.getRdbtnEscolaridadNinguna().isSelected()) {
                 fallecido.setEscolaridad("Ninguna");
@@ -444,7 +459,7 @@ public class ControladorCertificadoDefuncion {
             fallecido.setEscolaridad("Se ignora");
         }
 
-// Validar el campo "Tipo Escolaridad" si la escolaridad no es "Ninguna" o "Se ignora"
+        // Validar el campo "Tipo Escolaridad" si la escolaridad no es "Ninguna" o "Se ignora"
         if (!vistaGeneraCertificado.getRdbtnEscolaridadNinguna().isSelected()
                 && !vistaGeneraCertificado.getRdbtnEscolaridadSeIgnora().isSelected()) {
             if (vistaGeneraCertificado.getRdbtnEscolaridadCompleta().isSelected()) {
@@ -457,7 +472,7 @@ public class ControladorCertificadoDefuncion {
             }
         }
 
-// Validar el campo "Ocupación Habitual"
+        // Validar el campo "Ocupación Habitual"
         if (!vistaGeneraCertificado.getRdbtnOcupacionHabitualSeIgnora().isSelected()) {
             fallecido.setOcupacionHabitual(true);
             if (!vistaGeneraCertificado.getTxtOcupacionHabitual().getText().isEmpty()
@@ -473,7 +488,7 @@ public class ControladorCertificadoDefuncion {
             fallecido.setOcupacionHabitual(false);
         }
 
-// Validar el campo "Trabajaba"
+        // Validar el campo "Trabajaba"
         if (vistaGeneraCertificado.getRdbtnSiTrabajaba().isSelected()) {
             fallecido.setTrabajaba("Si");
         } else if (vistaGeneraCertificado.getRdbtnNoTrabajaba().isSelected()) {
@@ -485,7 +500,7 @@ public class ControladorCertificadoDefuncion {
             errores.append("El campo Trabajaba no debe ser vacío");
         }
 
-// Mostrar los mensajes de error si existen
+        // Mostrar los mensajes de error si existen
         if (errores.length() > 0) {
             JOptionPane.showMessageDialog(
                     null,
@@ -503,7 +518,7 @@ public class ControladorCertificadoDefuncion {
         informante = new Informante();
         var errores = new StringBuilder();
 
-// Validar y asignar la afiliación al servicio de salud
+        // Validar y asignar la afiliación al servicio de salud
         if (!vistaGeneraCertificado.getRdbtnServiciosDeSaludNinguna().isSelected()
                 && !vistaGeneraCertificado.getRdbtnServiciosDeSaludSeIgnora().isSelected()) {
             // Verificar qué servicio de salud está seleccionado y asignarlo
