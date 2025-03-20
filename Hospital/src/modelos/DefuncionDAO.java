@@ -14,6 +14,8 @@ public class DefuncionDAO {
         conexion = new MySQLConexion().getConnection();
     }
 
+    /// # METHODS PARA INSERTAR DATOS EN LA BASE DE DATOS
+
     //    Method para insertar datos en la tabla defuncion
     public boolean registrarDefuncion(Defuncion defuncion, int idFallecido) {
         final String INSERT_QUERY = "INSERT INTO defuncion(id_fallecido, sitio, fecha, atencion_medica, " +
@@ -265,6 +267,101 @@ public class DefuncionDAO {
         return false;
     }
 
+    /// # METHODS PARA OBTENER DATOS DE LA BASE DE DATOS
+
+    // Method para obtener los datos de la tabla defuncion por id_fallecido
+    public Defuncion getDefuncionByIdFallecido(int idFallecido) {
+        Defuncion defuncion;
+        final String SELECT_QUERY = "SELECT sitio, fecha, atencion_medica, accidental_violenta, defuncion_tipo " +
+                "FROM defuncion WHERE id_fallecido = ?";
+        try (PreparedStatement preparedStatement = conexion.prepareStatement(SELECT_QUERY)) {
+            preparedStatement.setInt(1, idFallecido);
+            ResultSet resultSet = preparedStatement.executeQuery();
+            if (resultSet.next()) {
+                defuncion = new Defuncion();
+                defuncion.setSitio(resultSet.getString("sitio"));
+                setFechaDefuncion(defuncion, resultSet);
+                defuncion.setAtencionMedica(resultSet.getString("atencion_medica"));
+                defuncion.setAccidentalViolenta(resultSet.getString("accidental_violenta"));
+                defuncion.setDefuncionTipo(resultSet.getString("defuncion_tipo"));
+                return defuncion;
+            }
+        } catch (SQLException e) {
+            System.err.println("Error al obtener defuncion por id_fallecido: " + e.getMessage());
+        } finally {
+            if (conexion != null) {
+                try {
+                    conexion.close();
+                } catch (SQLException e) {
+                    System.err.println("Error al cerrar la conexión: " + e.getMessage());
+                }
+            }
+        }
+        return null;
+    }
+
+    // Method para obtener los datos de la tabla defuncion_unidad_medica por id_defuncion
+    public Defuncion getDefuncionUnidadMedicaByIdDefuncion(int idDefuncion) {
+        Defuncion defuncion;
+        final String SELECT_QUERY = "SELECT unidad_medica, nombre_unidad_medica, clues " +
+                "FROM defuncion_unidad_medica WHERE id_defuncion = ?";
+        try (PreparedStatement preparedStatement = conexion.prepareStatement(SELECT_QUERY)) {
+            preparedStatement.setInt(1, idDefuncion);
+            ResultSet resultSet = preparedStatement.executeQuery();
+            if (resultSet.next()) {
+                defuncion = new Defuncion();
+                defuncion.setUnidadMedica(resultSet.getString("unidad_medica"));
+                defuncion.setNombreUnidadMedica(resultSet.getString("nombre_unidad_medica"));
+                defuncion.setClues(resultSet.getString("clues"));
+                return defuncion;
+            }
+        } catch (SQLException e) {
+            System.err.println("Error al obtener defuncion_unidad_medica por id_defuncion: " + e.getMessage());
+        } finally {
+            if (conexion != null) {
+                try {
+                    conexion.close();
+                } catch (SQLException e) {
+                    System.err.println("Error al cerrar la conexión: " + e.getMessage());
+                }
+            }
+        }
+        return null;
+    }
+
+    // Method para obtener los datos de la tabla defuncion_mujer_10_54_anios por id_defuncion
+    public Defuncion getDefuncionMujer1054AniosByIdDefuncion(int idDefuncion) {
+        Defuncion defuncion;
+        final String SELECT_QUERY = "SELECT muerte_durante, causas_complicaciones_propias_embarazo_parto_puerperio, " +
+                "causas_complicaron_embarazo_parto_puerperio FROM defuncion_mujer_10_54_anios WHERE id_defuncion = ?";
+        try (PreparedStatement preparedStatement = conexion.prepareStatement(SELECT_QUERY)) {
+            preparedStatement.setInt(1, idDefuncion);
+            ResultSet resultSet = preparedStatement.executeQuery();
+            if (resultSet.next()) {
+                defuncion = new Defuncion();
+                defuncion.setMuerteDurante(resultSet.getString("muerte_durante"));
+                defuncion.setCausasComplicacionesPropiasEmbarazoPartoPuerperio(resultSet.getString(
+                        "causas_complicaciones_propias_embarazo_parto_puerperio"));
+                defuncion.setCausasComplicaronEmbarazoPartoPuerperio(resultSet.getString(
+                        "causas_complicaron_embarazo_parto_puerperio"));
+                return defuncion;
+            }
+        } catch (SQLException e) {
+            System.err.println("Error al obtener defuncion_mujer_10_54_anios por id_defuncion: " + e.getMessage());
+        } finally {
+            if (conexion != null) {
+                try {
+                    conexion.close();
+                } catch (SQLException e) {
+                    System.err.println("Error al cerrar la conexión: " + e.getMessage());
+                }
+            }
+        }
+        return null;
+    }
+
+    /// # METHODS AUXILIARES
+
     // Méthod auxiliar para establecer valores en el PreparedStatement
     private void setPreparedStatementValor(PreparedStatement ps, int indice, String valor) throws SQLException {
         if (valor != null) {
@@ -284,5 +381,15 @@ public class DefuncionDAO {
     private java.sql.Date createSqlDate(Defuncion defuncion) {
         LocalDate date = LocalDate.of(defuncion.getCirugiaAnio(), defuncion.getCirugiaMes(), defuncion.getCirugiaDia());
         return java.sql.Date.valueOf(date);
+    }
+
+    // Mehod auxiliar para insertar la fecha de defuncion
+    private void setFechaDefuncion(Defuncion defuncion, ResultSet resultSet) throws SQLException {
+        Timestamp fecha = resultSet.getTimestamp("fecha");
+        defuncion.setAnio(fecha.toLocalDateTime().getYear());
+        defuncion.setMes(fecha.toLocalDateTime().getMonthValue());
+        defuncion.setDia(fecha.toLocalDateTime().getDayOfMonth());
+        defuncion.setHoras(fecha.toLocalDateTime().getHour());
+        defuncion.setMinutos(fecha.toLocalDateTime().getMinute());
     }
 }
